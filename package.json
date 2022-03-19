@@ -1,0 +1,13 @@
+{
+  "name": "citation-api",
+  "version": "1.0.0",
+  "description": "Citation API",
+  "main": "index.js",
+  "author": "Ken Javier",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.19.2",
+    "express": "^4.17.3",
+    "moment": "^2.29.1"
+  }
+}
