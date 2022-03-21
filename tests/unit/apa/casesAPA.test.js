@@ -2,10 +2,10 @@ const { citeCase } = require("../../../utils/apa/citing/casesAPA");
 
 describe("Cases (APA)", () => {
   it("should properly cite a case", () => {
-    const book = citeCase({
+    const cases = citeCase({
       firstPerson: {
         firstName: "John",
-        lastName: "Lessard",
+        lastName: "",
       },
       secondPerson: {
         firstName: "Eric",
@@ -15,7 +15,7 @@ describe("Cases (APA)", () => {
       year: "1972",
     });
 
-    expect(book).toEqual(
+    expect(cases).toEqual(
       "Lessard v. Schmidt, 349 F. Supp. 1078, 1972"
     );
   });
