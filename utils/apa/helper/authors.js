@@ -4,7 +4,7 @@ const getFormattedAuthors = (authors) => {
   const noAuthor = authors.length === 0;
 
   if (noAuthor) {
-    formattedAuthors = "n.a.";
+    formattedAuthors = "";
   } else {
     formattedAuthors = _formatWithAuthors(authors);
   }
@@ -55,7 +55,7 @@ const _formatWithAuthors = (authors) => {
 const _formatTwoAuthors = (authors) => {
   let otherAuthors = [];
 
-  otherAuthors[1] = ` & ${formatAuthorName(authors[1])}`;
+  otherAuthors[1] = `, & ${formatAuthorName(authors[1])}`;
 
   return otherAuthors;
 };

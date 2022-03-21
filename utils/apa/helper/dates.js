@@ -5,9 +5,9 @@ const getFormattedDateYear = (date) => {
 
   if (date) {
     let newDate = moment(date);
-    formattedDateYear = newDate.format(" (YYYY)");
+    formattedDateYear = newDate.format(" (YYYY).");
   } else {
-    formattedDateYear = " (n.d.)";
+    formattedDateYear = " (n.d.).";
   }
 
   return formattedDateYear;
@@ -18,7 +18,7 @@ const getFormattedDateFull = (date) => {
 
   if (date) {
     let newDate = moment(date);
-    formattedDateYear = moment(newDate).format(" (YYYY, MMMM DD)");
+    formattedDateYear = moment(newDate).format(" (YYYY, MMMM DD).");
   } else {
     formattedDateYear = " (n.d.)";
   }

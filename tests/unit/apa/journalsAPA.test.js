@@ -54,7 +54,7 @@ describe("cite journals properly", () => {
     });
 
     expect(journal).toEqual(
-      "n.a. (1975). Perceptual comparisons through the mind's eye. <i>Memory & Cognition</i>, 3, 635-647."
+      "Perceptual comparisons through the mind's eye. (1975). <i>Memory & Cognition</i>, 3, 635-647."
     );
   });
 
@@ -76,7 +76,7 @@ describe("cite journals properly", () => {
     });
 
     expect(journal).toEqual(
-      "Becker, L. & Seligman, C. (2010). Welcome to the Energy Crisis. <i>journal of Social Issues</i>, 1-7. https://doi.org/10.1111/j.1540-4560.1981.tb02623.x"
+      "Becker, L., & Seligman, C. (2010). Welcome to the Energy Crisis. <i>journal of Social Issues</i>, 1-7. https://doi.org/10.1111/j.1540-4560.1981.tb02623.x"
     );
   });
 
