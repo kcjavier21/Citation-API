@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { citeInternationalAgreement } = require("../../utils/apa/citing/internationalAgreementAPA");
+const { citeInternationalAgreement } = require("../../utils/apa/citing/internationalAgreementsAPA");
 
 router.post("/", (req, res) => {
   const data = req.body;

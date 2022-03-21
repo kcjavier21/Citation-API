@@ -3,7 +3,7 @@ const { getFormattedDateYear, getFormattedPaperNo, getFormattedLink } = require(
 // Hershey Foods Corporation. (2001). 2001 Annual report
 // (Working Paper No. 3). Wiley.
 
-const citeReports = ({ author, date, title, report }) => {
+const citeReport = ({ author, date, title, report }) => {
     const formattedDate = getFormattedDateYear(date);
     const formattedPaperNo = getFormattedPaperNo(report);
     const formattedLink = getFormattedLink(report);
@@ -15,5 +15,5 @@ const citeReports = ({ author, date, title, report }) => {
 }
 
 module.exports = {
-    citeReports,
+    citeReport,
 }

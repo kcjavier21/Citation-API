@@ -10,4 +10,19 @@ const getFormattedPaperNo = ({ number }) => {
   return formattedNo;
 };
 
+const formatEdPage = (Edition, Page) => {
+  if (isObjEmpty(formatEdPage) != true) {
+       if(Edition != "" && Page != "") {
+           return ` (${Edition} ed., ${Page}).`;
+       }
+       else if (Edition != "") {
+           return ` (${Edition} ed.)`;
+       }
+       else {
+           return ` (${Page})`;
+       }
+   }
+   else return "";
+}
+
 module.exports = { getFormattedPaperNo };

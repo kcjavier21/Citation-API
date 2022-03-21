@@ -1,3 +1,5 @@
+const moment = require("moment");
+
 const getFormattedVolume = ({ volume, issue }) => {
   let formattedVolume;
 

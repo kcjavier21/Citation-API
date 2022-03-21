@@ -29,6 +29,22 @@ const citeRepublishedBook = ({ authors, year, title, volume, page, publisher, or
   return referenceCitation;
 };
 
+
+// const data = {
+//   authors: [{ firstName: "Sigmund", lastName: "Freud" }],
+//   year: "1961",
+//   title: "The standard edition of the complete psychological works of Sigmund Freud",
+//   volume: "19",
+//   page: {
+//     start: "3",
+//     end: "66",
+//   },
+//   publisher: "Hogarth Press",
+//   origPubYear: "1923",
+// };
+
+// console.log(citeRepublishedBook(data));
+
 module.exports = { citeBook, citeRepublishedBook };
 
 //CHANGES
