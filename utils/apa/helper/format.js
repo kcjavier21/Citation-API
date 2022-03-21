@@ -4,7 +4,7 @@ const { getFormattedLink } = require("./links");
 const { getFormattedDateYear, getFormattedDateFull } = require("./dates");
 const { getFormattedPaperNo } = require("./paperNumbers");
 const { getFormattedEditors } = require("./editors");
-const { getFormattedEdition } = require("./editions");
+const { getFormattedEditionAndPage } = require("./editions");
 
 module.exports = {
   getFormattedAuthors,
@@ -16,7 +16,7 @@ module.exports = {
   getFormattedDateFull,
   getFormattedPaperNo,
   getFormattedEditors,
-  getFormattedEdition,
+  getFormattedEditionAndPage,
 };
 
 // CHANGES

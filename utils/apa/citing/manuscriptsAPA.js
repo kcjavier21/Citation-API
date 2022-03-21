@@ -24,15 +24,15 @@ const citeUnPublishedManuscript = ({ authors, year, title }) => {
     return referenceCitation;
   };
   
-  data = {
-    authors: [
-      { firstName: "Rick", lastName: "Enikolopov" },
-      { firstName: "Alexander", lastName: "Makarin" },
-      { firstName: "Max", lastName: "Petrova" },
-    ],
-    year: "2018",
-    title: "Social media and protest participation: Evidence from Russia",
-  };
+//   data = {
+//     authors: [
+//       { firstName: "Rick", lastName: "Enikolopov" },
+//       { firstName: "Alexander", lastName: "Makarin" },
+//       { firstName: "Max", lastName: "Petrova" },
+//     ],
+//     year: "2018",
+//     title: "Social media and protest participation: Evidence from Russia",
+//   };
 
 // console.log(citeUnPublishedManuscript(data));
   

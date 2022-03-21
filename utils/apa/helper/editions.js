@@ -1,4 +1,4 @@
-const getFormattedEdition = (edition, page) => {
+const getFormattedEditionAndPage = (edition, page) => {
   if (edition && page) {
     return ` (${edition} ed., p. ${page}).`;
   } else if (edition && !page) {
@@ -10,4 +10,4 @@ const getFormattedEdition = (edition, page) => {
   }
 };
 
-module.exports = { getFormattedEdition };
+module.exports = { getFormattedEditionAndPage };

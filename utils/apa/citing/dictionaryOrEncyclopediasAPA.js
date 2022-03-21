@@ -1,51 +1,26 @@
-const { getFormattedAuthors, getFormattedEditors, getFormattedEdition } = require("../helper/format");
+const { getFormattedAuthors, getFormattedEditors, getFormattedEditionAndPage, getFormattedDateFull } = require("../helper/format");
 
-const citeEncyclopediaOnline = ({ authors, year, chapterTitle, bookTitle, editors, url }) => {
-  const formattedAuthor = getFormattedAuthors(authors);
-  const formattedYear = year ? ` (${year}).` : "(n.d.).";
-  const formattedChapterTitle = ` ${chapterTitle}`;
-  const formattedBookTitle = ` <i>${bookTitle}</i>`;
-  //   const formattedEdPage = getFormattedEdition(edition, page);
-  const formattedUrl = ` ${url}`;
+// this function is valid in all the three options: with author, without author, and Print.
+//The distinction will just be done on the frontend on what values will be passed on. but this function will work on all the 3 options stated above.
+const citeDictOrEncyclo = ({Authors, Date, Term, Editors, Edition, Page, SourceTitle, Url, City, Publisher}) => {
+    let finalAuthor = getFormattedAuthors(Authors);
+    let finalDate = getFormattedDateFull(Date);
+    let finalTerm = ` ${Term}`;
+    let finalEditors = getFormattedEditors(Editors);
+    let finalSourceTitle = ` <i>${SourceTitle}</i>`;
+    let finalEdPage = getFormattedEditionAndPage(Edition, Page);
+    if (Url != "") var finalUrl = ` ${Url}`; else finalUrl = "";
+    if (City != "" && Publisher != "") var finalCityPublisher = ` ${City}: ${Publisher}.`; else finalCityPublisher = "";
 
-  const formattedEditors = () => {
-    if (editors) {
-      let result = `${getFormattedEditors(editors)}`;
 
-      if (editors.length > 1) {
-        result = result.concat(" Eds.");
-      } else if (editors.length === 1) {
-        result = result.concat(" Ed.");
-      }
-
-      return result;
-    } else {
-      return "";
+    if (finalAuthor != "") {
+        if (finalUrl != ""){
+            return finalAuthor + finalDate + finalTerm + " In" + finalEditors + finalSourceTitle + finalEdPage + finalUrl + finalCityPublisher;
+        } 
     }
-  };
+    else {
+        return finalTerm + finalDate + " In" + finalEditors + finalSourceTitle + finalEdPage + finalUrl + finalCityPublisher;
+    }
+}
 
-  if (formattedAuthor != "") {
-    return (
-      formattedAuthor +
-      formattedYear +
-      formattedChapterTitle +
-      " In" +
-      formattedEditors() +
-      formattedBookTitle +
-      //   formattedEdPage +
-      formattedUrl
-    );
-  } else {
-    return (
-      formattedChapterTitle +
-      formattedYear +
-      " In" +
-      formattedEditors() +
-      formattedBookTitle +
-      //   formattedEdPage +
-      formattedUrl
-    );
-  }
-};
-
-module.exports = { citeEncyclopediaOnline };
+module.exports = { citeDictOrEncyclo };
