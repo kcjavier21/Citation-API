@@ -3,7 +3,7 @@ const { citeJournalArticle } = require("../../../utils/apa/citing/journalsAPA");
 describe("cite journals properly", () => {
   it("should properly cite journals with one author", () => {
     const journal = citeJournalArticle({
-      authors: [{ firstName: "Allan Gabrielle", lastName: "Paivio" }],
+      authors: [{ firstName: "Allan Gabrielle", lastName: "Paivio", middleInitial: "G" }],
       year: "1975",
       article: "Perceptual comparisons through the mind's eye",
       journal: {
@@ -22,7 +22,7 @@ describe("cite journals properly", () => {
 
   it("should properly cite journals with one author but no date", () => {
     const journal = citeJournalArticle({
-      authors: [{ firstName: "Allan Gabrielle", lastName: "Paivio" }],
+      authors: [{ firstName: "Allan Gabrielle", lastName: "Paivio", middleInitial: "G" }],
       date: null,
       article: "Perceptual comparisons through the mind's eye",
       journal: {

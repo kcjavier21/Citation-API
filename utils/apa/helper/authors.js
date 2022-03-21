@@ -12,14 +12,12 @@ const getFormattedAuthors = (authors) => {
   return formattedAuthors;
 };
 
-const formatAuthorName = ({ firstName, lastName }) => {
-    const firstNames = firstName.split(" ");
-    let firstInitials = "";
+const formatAuthorName = ({ firstName, lastName, middleInitial }) => {
+    // const firstNames = firstName.split(" ");
+    let firstInitial = ` ${firstName[0]}.`;
+    let formattedMiddleInitial = middleInitial ? ` ${middleInitial}.` : '';
   
-    for (let i = 0; i < firstNames.length; i++) {
-      firstInitials += " " + firstNames[i].charAt(0) + ".";
-    }
-    return `${lastName},${firstInitials}`;
+    return `${lastName},${firstInitial}${formattedMiddleInitial}`;
   };
 
 const _formatWithAuthors = (authors) => {
