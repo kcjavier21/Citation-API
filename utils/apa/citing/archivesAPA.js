@@ -1,11 +1,11 @@
 // TODO: Insert here the citation API for Archive sources
-const { getFormattedAuthors, getFormattedEditors, getFormattedEditionAndPage, getFormattedDateFull } = require("../helper/format");
+const { getFormattedAuthors, getFormattedDate } = require("../helper/format");
 
 //*Main Function
 const citeArchiveSource = ({authors, date, title, description, collection, repository}) => {
 
   let finalAuthors = getFormattedAuthors(authors);
-  let finalDate = getFormattedDateFull(date); 
+  let finalDate = getFormattedDate(date); 
   let finalTitle = formatTitle(title, authors);
   let finalDescription = description ? ` [${description}].` : '';
   let finalCollection = formatCollection(collection);

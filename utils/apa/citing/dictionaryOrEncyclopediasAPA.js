@@ -1,4 +1,4 @@
-const { getFormattedAuthors, getFormattedEditors, getFormattedEditionAndPage, getFormattedDateYear } = require("../helper/format");
+const { getFormattedAuthors, getFormattedEditors, getFormattedEditionAndPage, getFormattedDate } = require("../helper/format");
 
 /*
 this function is valid in all the three options: with author, without author, and Print.
@@ -8,7 +8,7 @@ but this function will work on all the 3 options stated above.
 
 const citeDictOrEncyclo = ({ authors, date, term, editors, edition, page, sourceTitle, url, city, publisher }) => {
   let finalAuthor = getFormattedAuthors(authors);
-  let finalDate = `${getFormattedDateYear(date)} `;
+  let finalDate = `${getFormattedDate(date)} `;
   let finalTerm = `${term}.`;
   let finalEditors = getFormattedEditors(editors);
   let finalEdPage = getFormattedEditionAndPage(edition, page);

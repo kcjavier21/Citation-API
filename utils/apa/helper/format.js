@@ -1,7 +1,7 @@
 const { getFormattedAuthors } = require("./authors");
 const { getFormattedVolume, getFormattedVolumeWithPage, getFormattedEditionVolume } = require("./volumes");
 const { getFormattedLink } = require("./links");
-const { getFormattedDateYear, getFormattedDateFull } = require("./dates");
+const { getFormattedDate } = require("./dates");
 const { getFormattedPaperNo } = require("./paperNumbers");
 const { getFormattedEditors } = require("./editors");
 const { getFormattedEditionAndPage } = require("./editions");
@@ -12,8 +12,7 @@ module.exports = {
   getFormattedVolumeWithPage,
   getFormattedEditionVolume,
   getFormattedLink,
-  getFormattedDateYear,
-  getFormattedDateFull,
+  getFormattedDate,
   getFormattedPaperNo,
   getFormattedEditors,
   getFormattedEditionAndPage,

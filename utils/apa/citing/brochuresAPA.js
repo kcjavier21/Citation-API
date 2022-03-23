@@ -1,9 +1,9 @@
-const { getFormattedAuthors, getFormattedDateFull } = require("../helper/format");
+const { getFormattedAuthors, getFormattedDate } = require("../helper/format");
 
 // === For Brochures, Pamphlets, and Paintings ===
 const citeBrochure = ({ authors, date, title, docType, publisher }) => {
   const formattedAuthor = getFormattedAuthors(authors);
-  const formattedYear = getFormattedDateFull(date);
+  const formattedYear = getFormattedDate(date);
   const formattedTitle = ` <i>${title}</i>`;
   const formattedDocType = ` [${docType}]. `;
   const formattedPublisher = `${publisher}.`;

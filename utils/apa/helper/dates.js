@@ -1,19 +1,20 @@
 const moment = require("moment");
+//! Decprecated: This function is integrated in the function below
+// const getFormattedDateYear = (date) => {
+//   let formattedDateYear;
 
-const getFormattedDateYear = (date) => {
-  let formattedDateYear;
+//   if (date) {
+//     let newDate = moment(date);
+//     formattedDateYear = newDate.format(" (YYYY).");
+//   } else {
+//     formattedDateYear = " (n.d.).";
+//   }
 
-  if (date) {
-    let newDate = moment(date);
-    formattedDateYear = newDate.format(" (YYYY).");
-  } else {
-    formattedDateYear = " (n.d.).";
-  }
+//   return formattedDateYear;
+// };
 
-  return formattedDateYear;
-};
 
-const getFormattedDateFull = (date) => {
+const getFormattedDate = (date) => {
   let formattedDateYear;
 
   if (date) {
@@ -30,4 +31,4 @@ const getFormattedDateFull = (date) => {
   return formattedDateYear;
 };
 
-module.exports = { getFormattedDateYear, getFormattedDateFull }
+module.exports = { getFormattedDate }

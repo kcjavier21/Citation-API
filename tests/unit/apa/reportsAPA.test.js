@@ -4,7 +4,7 @@ describe("Reports (APA)", () => {
   it("should properly cite report", () => {
     const report = citeReport({
       author: "Hershey Foods Corporation",
-      date: new Date(2001, 4, 29),
+      date: "2001",
       title: "2001 Annual report",
       report: {
         number: 3,

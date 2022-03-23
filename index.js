@@ -9,7 +9,9 @@ const journals = require("./routes/apa/journals");
 const manuscripts = require("./routes/apa/manuscripts");
 const newspapers = require("./routes/apa/newspapers");
 const reports = require("./routes/apa/reports");
-const archives = require("./routes/apa/archives")
+const archives = require("./routes/apa/archives");
+const dataset = require("./routes/apa/dataset")
+const preprint = require("./routes/apa/preprint")
 const app = express();
 
 app.use(bodyParser.json());
@@ -24,6 +26,8 @@ app.use("/api/apa/manuscripts", manuscripts);
 app.use("/api/apa/newspapers", newspapers);
 app.use("/api/apa/reports", reports);
 app.use("/api/apa/archives", archives);
+app.use("/api/apa/dataset", dataset);
+app.use("/api/apa/preprint", preprint);
 
 console.log(new Date(2022));
 const port = process.env.port || 8000;

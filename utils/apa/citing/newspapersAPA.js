@@ -1,8 +1,8 @@
-const { getFormattedAuthors, getFormattedDateFull } = require("../helper/format");
+const { getFormattedAuthors, getFormattedDate } = require("../helper/format");
 
 const citeNewspaper = ({ authors, date, article, newspaper }) => {
   const formattedAuthors = getFormattedAuthors(authors);
-  const formattedDate = getFormattedDateFull(date);
+  const formattedDate = getFormattedDate(date);
 
   let newspaperCitation = `${formattedAuthors}${formattedDate} ${article}. <i>${newspaper.title}</i>, ${newspaper.pages}.`;
 
