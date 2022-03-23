@@ -4,7 +4,7 @@ const getFormattedAuthors = (authors) => {
   const noAuthor = authors.length === 0;
 
   if (noAuthor) {
-    formattedAuthors = "n.a.";
+    formattedAuthors = "";
   } else {
     formattedAuthors = _formatWithAuthors(authors);
   }
@@ -15,10 +15,15 @@ const getFormattedAuthors = (authors) => {
 const formatAuthorName = ({ firstName, lastName, middleInitial }) => {
     // const firstNames = firstName.split(" ");
     let firstInitial = ` ${firstName[0]}.`;
-    let formattedMiddleInitial = middleInitial ? ` ${middleInitial}.` : '';
-  
+    let formattedMiddleInitial = '';
+
+    if (middleInitial) { 
+      if (middleInitial[1] != ".") formattedMiddleInitial = ` ${middleInitial}.`;
+      else formattedMiddleInitial = ` ${middleInitial}`;
+    }
+
     return `${lastName},${firstInitial}${formattedMiddleInitial}`;
-  };
+  }
 
 const _formatWithAuthors = (authors) => {
   const hasOneAuthor = authors.length === 1;
@@ -55,7 +60,7 @@ const _formatWithAuthors = (authors) => {
 const _formatTwoAuthors = (authors) => {
   let otherAuthors = [];
 
-  otherAuthors[1] = ` & ${formatAuthorName(authors[1])}`;
+  otherAuthors[1] = `, & ${formatAuthorName(authors[1])}`;
 
   return otherAuthors;
 };

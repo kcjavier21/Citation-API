@@ -1,10 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const { citeDictOrEncyclo } = require("../../utils/apa/citing/dictionaryOrEncyclopediasAPA");
+const { citeDataset } = require("../../utils/apa/citing/datasetAPA");
 
 router.post("/", (req, res) => {
   const data = req.body;
-  const result = citeDictOrEncyclo(data);
+  const result = citeDataset(data);
 
   res.send(result);
 });

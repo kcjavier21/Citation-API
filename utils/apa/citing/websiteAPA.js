@@ -11,6 +11,4 @@ const citeWebsite = ({ authors, year, article, website }) => {
   return websiteCitation;
 };
 
-module.exports = {
-  citeWebsite,
-}
+module.exports = { citeWebsite }

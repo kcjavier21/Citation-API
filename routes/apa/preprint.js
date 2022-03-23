@@ -1,10 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const { citeDictOrEncyclo } = require("../../utils/apa/citing/dictionaryOrEncyclopediasAPA");
+const { citePreprint } = require("../../utils/apa/citing/preprintAPA");
 
 router.post("/", (req, res) => {
   const data = req.body;
-  const result = citeDictOrEncyclo(data);
+  const result = citePreprint(data);
 
   res.send(result);
 });
