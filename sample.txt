@@ -1,0 +1,1 @@
+This is the text before I put it in .gtignore
