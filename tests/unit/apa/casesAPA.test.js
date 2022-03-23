@@ -5,7 +5,7 @@ describe("Cases (APA)", () => {
     const cases = citeCase({
       firstPerson: {
         firstName: "John",
-        lastName: "",
+        lastName: "Lessard",
       },
       secondPerson: {
         firstName: "Eric",
