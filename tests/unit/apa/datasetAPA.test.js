@@ -4,7 +4,7 @@ describe("dataset sources (APA)", () => {
 
   //*Test case 1
     it("should properly cite dataset with Author v1", () => {
-      const citation = citeDataset({
+      const dataset = citeDataset({
         authors: [
           {
             lastName: "Coppedge",
@@ -42,7 +42,7 @@ describe("dataset sources (APA)", () => {
         website: "V-Dem",
         urlOrDoi: "https://doi.org/10.23696/vdemcy19"
       }); 
-      expect(citation).toEqual(
+      expect(dataset).toEqual(
         "Coppedge, M., Gerring, J., Knutsen, C. H., Lindberg, S. I., Teorell, J., & Altman, D. (2019). <i>V-Dem country-year dataset v9</i>" 
         + " [Data set]. V-Dem. https://doi.org/10.23696/vdemcy19"
       );
@@ -50,7 +50,7 @@ describe("dataset sources (APA)", () => {
 
     //*Test case 2
     it("should properly cite dataset with Author v2", () => {
-      const citation = citeDataset({
+      const dataset = citeDataset({
         authors: [
           {
             lastName: "O'Donohue",
@@ -63,7 +63,7 @@ describe("dataset sources (APA)", () => {
         website: "ICPSR",
         urlOrDoi: "https://doi.org/10.3886/ICPSR36966.v1"
       }); 
-      expect(citation).toEqual(
+      expect(dataset).toEqual(
         "O'Donohue, W. (2017). <i>Content analysis of undergraduate psychology textbooks (ICPSR 21600; Version V1)</i> [Data set]."
         + " ICPSR. https://doi.org/10.3886/ICPSR36966.v1"
         

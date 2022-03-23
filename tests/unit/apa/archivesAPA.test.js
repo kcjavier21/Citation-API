@@ -4,7 +4,7 @@ describe("Archive Sources  (APA)", () => {
 
 //*Test case 1
   it("should properly cite Archive Source with Author v1", () => {
-    const dictorEncyclo = citeArchiveSource({
+    const archive = citeArchiveSource({
       authors: [
         {
           lastName: "Hicks",
@@ -24,7 +24,7 @@ describe("Archive Sources  (APA)", () => {
         City: "Halifax, Nova Scotia, Canada"
       }
     });
-    expect(dictorEncyclo).toEqual(
+    expect(archive).toEqual(
       "Hicks, H. D. (1956, October 24). <i>Correspondence from Henry Davies Hicks to the Annapolis County electorate.</i>"
       + " Henry Davies Hicks fonds (MS-2-511, Box 15, Folder 9). Dalhousie University Archives, Halifax, Nova Scotia, Canada."
     );
@@ -32,7 +32,7 @@ describe("Archive Sources  (APA)", () => {
 
 //*Test case 2
   it("should properly cite Archive Source with Author v2", () => {
-    const dictorEncyclo = citeArchiveSource({
+    const archive = citeArchiveSource({
       authors: [
         {
           lastName: "Frank",
@@ -52,7 +52,7 @@ describe("Archive Sources  (APA)", () => {
         City: "Tarrytown, NY, USA"
       }
     });
-    expect(dictorEncyclo).toEqual(
+    expect(archive).toEqual(
       "Frank, L. K. (1935, February 04). [Letter to Robert M. Ogden]. (GEB series 1.3, Box 371, Folder 3877)."
        + " Rockefeller Archive Centre, Tarrytown, NY, USA."
     );
@@ -60,7 +60,7 @@ describe("Archive Sources  (APA)", () => {
 
 //*Test case 3
   it("should properly cite Archive Source without Author v1", () => {
-    const dictorEncyclo = citeArchiveSource({
+    const archive = citeArchiveSource({
       authors: [
      
        ],
@@ -76,7 +76,7 @@ describe("Archive Sources  (APA)", () => {
         City: "Milwaukee, WI, USA"
       }
     });
-    expect(dictorEncyclo).toEqual(
+    expect(archive).toEqual(
       "Johnny can read, better than ever. (1958). Unidentified newspaper clipping (Series 10, File 01165). Photographic,"
       + " Sound, Film, and Biographical Records, Department of Special Collections and University Archives, Marquette"
       + " University, Milwaukee, WI, USA."
@@ -85,7 +85,7 @@ describe("Archive Sources  (APA)", () => {
 
 //*Test case 4
   it("should properly cite Archive Source without Author v2", () => {
-    const dictorEncyclo = citeArchiveSource({
+    const archive = citeArchiveSource({
       authors: [
        
        ],
@@ -101,7 +101,7 @@ describe("Archive Sources  (APA)", () => {
         City: ""
       }
     });
-    expect(dictorEncyclo).toEqual(
+    expect(archive).toEqual(
       "Psychoanalysis institute to open in the new year. (1948, September 18). [Clipping from an unidentified Dayton, OH newspaper]. Copy in possession of the author."
      
     );
