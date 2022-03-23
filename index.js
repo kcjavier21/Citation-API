@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const cors = require("cors");
 
 // === ROUTES ===
 const archives = require("./routes/apa/archives");
@@ -21,6 +22,7 @@ const app = express();
 
 // === MIDDLEWARE ===
 app.use(bodyParser.json());
+app.use(cors());
 
 // === ROUTES ====
 app.use("/api/apa/archives", archives);
