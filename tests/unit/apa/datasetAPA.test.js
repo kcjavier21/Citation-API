@@ -3,7 +3,7 @@ const { citeDataset } = require("../../../utils/apa/citing/datasetAPA")
 describe("dataset sources (APA)", () => {
 
   //*Test case 1
-    it("should properly cite dataset with Author v1", () => {
+    it("should properly cite dataset with multiple authors (6)", () => {
       const dataset = citeDataset({
         authors: [
           {
@@ -49,7 +49,7 @@ describe("dataset sources (APA)", () => {
     });
 
     //*Test case 2
-    it("should properly cite dataset with Author v2", () => {
+    it("should properly cite dataset with one author with no middle initial", () => {
       const dataset = citeDataset({
         authors: [
           {
