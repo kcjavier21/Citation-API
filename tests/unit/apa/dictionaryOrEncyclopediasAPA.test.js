@@ -3,7 +3,7 @@ const { citeDictOrEncyclo } = require("../../../utils/apa/citing/dictionaryOrEnc
 describe("Dictionary or Encyclopedia  (APA)", () => {
   it("should properly cite (Online with Author)", () => {
     const dictorEncyclo = citeDictOrEncyclo({
-        Authors: [
+        authors: [
           {
             lastName: "Hurthouse",
             firstName: "Ronchester",
@@ -15,21 +15,21 @@ describe("Dictionary or Encyclopedia  (APA)", () => {
             middleInitial: ""
           }
         ],
-        Date: "2016-04-25T21:30:05",
-        Term: "Virtue ethics",
-        Editors: [
+        date: "2016",
+        term: "Virtue ethics",
+        editors: [
           {
             lastName: "Zalta",
             firstName: "Eric",
             middleInitial: ""
           }
         ],
-        Edition: "",
-        Page: "",
-        SourceTitle: "Stanford encyclopedia of philosophy",
-        Url: "https//plato.stanford.edu",
-        City: "",
-        Publisher: ""
+        edition: "",
+        page: "",
+        sourceTitle: "Stanford encyclopedia of philosophy",
+        url: "https//plato.stanford.edu",
+        city: "",
+        publisher: ""
       });
 
     expect(dictorEncyclo).toEqual(
@@ -39,20 +39,20 @@ describe("Dictionary or Encyclopedia  (APA)", () => {
 
   it("should properly cite (Online without Author)", () => {
     const dictorEncyclo = citeDictOrEncyclo({
-        Authors: [
+        authors: [
 
         ],
-        Date: "",
-        Term: "Heuristic",
-        Editors: [
+        date: "",
+        term: "Heuristic",
+        editors: [
           
         ],
-        Edition: "",
-        Page: "",
-        SourceTitle: "Merriam-Webster’s online dictionary",
-        Url: "http://www.m-w.com/dictionary/heuristic",
-        City: "",
-        Publisher: ""
+        edition: "",
+        page: "",
+        sourceTitle: "Merriam-Webster’s online dictionary",
+        url: "http://www.m-w.com/dictionary/heuristic",
+        city: "",
+        publisher: ""
       });
 
     expect(dictorEncyclo).toEqual(
@@ -62,20 +62,20 @@ describe("Dictionary or Encyclopedia  (APA)", () => {
 
   it("should properly cite (print)", () => {
     const dictorEncyclo = citeDictOrEncyclo({
-        Authors: [
+        authors: [
 
         ],
-        Date: "2015",
-        Term: "Mood induction",
-        Editors: [
+        date: "2015",
+        term: "Mood induction",
+        editors: [
           
         ],
-        Edition: "2",
-        Page: "667",
-        SourceTitle: "APA dictionary of psychology",
-        Url: "",
-        City: "Washington, DC",
-        Publisher: "American Psychological Association"
+        edition: "2",
+        page: "667",
+        sourceTitle: "APA dictionary of psychology",
+        url: "",
+        city: "Washington, DC",
+        publisher: "American Psychological Association"
       });
 
     expect(dictorEncyclo).toEqual(

@@ -17,10 +17,14 @@ const getFormattedDateFull = (date) => {
   let formattedDateYear;
 
   if (date) {
-    let newDate = moment(date);
-    formattedDateYear = moment(newDate).format(" (YYYY, MMMM DD).");
+    if (date.length != 4){  
+      let newDate = moment(date);
+      formattedDateYear = moment(newDate).format(" (YYYY, MMMM DD).");
+    } else 
+      return ` (${date}).`;
+
   } else {
-    formattedDateYear = " (n.d.)";
+    formattedDateYear = " (n.d.).";
   }
 
   return formattedDateYear;

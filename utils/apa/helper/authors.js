@@ -15,10 +15,15 @@ const getFormattedAuthors = (authors) => {
 const formatAuthorName = ({ firstName, lastName, middleInitial }) => {
     // const firstNames = firstName.split(" ");
     let firstInitial = ` ${firstName[0]}.`;
-    let formattedMiddleInitial = middleInitial ? ` ${middleInitial}.` : '';
-  
+    let formattedMiddleInitial = '';
+
+    if (middleInitial) { 
+      if (middleInitial[1] != ".") formattedMiddleInitial = ` ${middleInitial}.`;
+      else formattedMiddleInitial = ` ${middleInitial}`;
+    }
+
     return `${lastName},${firstInitial}${formattedMiddleInitial}`;
-  };
+  }
 
 const _formatWithAuthors = (authors) => {
   const hasOneAuthor = authors.length === 1;

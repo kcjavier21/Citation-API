@@ -14,8 +14,13 @@ const getFormattedEditors = (editors) => {
   
   const formatEditorName = ({ firstName, lastName, middleInitial }) => {
       // const firstNames = firstName.split(" ");
-      let firstInitial = ` ${firstName[0]}.`;
-      let formattedMiddleInitial = middleInitial ? ` ${middleInitial}.` : '';
+      let firstInitial = `${firstName[0]}.`;
+      let formattedMiddleInitial ='';
+
+      if (middleInitial) { 
+        if (middleInitial[1] != ".") formattedMiddleInitial = ` ${middleInitial}.`;
+        else formattedMiddleInitial = ` ${middleInitial}`;
+      }
     
       return `${firstInitial}${formattedMiddleInitial} ${lastName}`;
     };
@@ -32,7 +37,7 @@ const getFormattedEditors = (editors) => {
     let numeditors = 0;
   
     if (hasOneEditor) {
-      return firstEditor + " (Ed.),";
+      return firstEditor + " (Ed.), ";
     } else if (hasTwoEditors) {
       othereditors = _formatTwoeditors(editors);
       numeditors = 2;
@@ -49,7 +54,7 @@ const getFormattedEditors = (editors) => {
       formattedOtherEditors += othereditors[otherEditorIndex];
     }
   
-    return firstEditor + formattedOtherEditors + " (Eds.),";
+    return firstEditor + formattedOtherEditors + " (Eds.), ";
   };
   
   const _formatTwoeditors = (editors) => {
