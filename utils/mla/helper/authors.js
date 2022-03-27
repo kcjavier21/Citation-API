@@ -22,23 +22,8 @@ const _formatWithAuthors = (authors) => {
     } else if (hasTwoAuthors) {
         return `${authors[0].lastName}, ${authors[0].firstName}, and ${authors[1].firstName} ${authors[1].lastName}`
     } else if (hasMoreThanTwoAuthors) {
-        return _formatMoreThanTwoAuthors(authors);
+        return `${authors[0].lastName}, ${authors[0].firstName}, et al`;
     }
-}
-
-const _formatMoreThanTwoAuthors = (authors) => {
-    let listOfAuthors = "";
-    let lastAuthor;
-    
-    for(let authorIndex=0; authorIndex < authors.length-1; authorIndex++) {
-        if(authorIndex === authors.length-1) {
-            lastAuthor  `and ${authors[authorIndex].firstName} ${authors[authorIndex].lastName}`;
-        } else {
-            listOfAuthors += `${authors[authorIndex].lastName}, ${authors[authorIndex].firstName}, `
-        }
-    }
-
-    return listOfAuthors;
 }
 
 module.exports = {
