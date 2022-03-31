@@ -12,12 +12,6 @@ const citeBook = ({ authors, year, book }) => {
   return bookCitation;
 };
 
-// Lastname, A. (year). Title of the chapter 
-// in sentence case. In B. Lastname, C. 
-// Lastname, & D. Lastname (Eds.), Title of 
-// the book in sentence case (Volume, pp. 
-// firstpage-lastpage). Publisher. doi
-
 const citeBookChapter = ({ authors, year, chapter, editors, book, pages }) => {
   const formattedAuthors = getFormattedAuthors(authors);
   const formattedEditors = editors? `In ${getFormattedEditors(editors)}` : "";
