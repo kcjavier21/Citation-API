@@ -60,7 +60,7 @@ const getFormattedEditors = (editors) => {
   const _formatTwoeditors = (editors) => {
     let othereditors = [];
     
-    othereditors[1] = `, & ${formatEditorName(editors[1])}`;
+    othereditors[1] = ` & ${formatEditorName(editors[1])}`;
 
     return othereditors;
   };

@@ -3,7 +3,7 @@ const { citeArchiveSource } = require("../../../utils/apa/citing/archivesAPA");
 describe("Archive Sources  (APA)", () => {
 
 //*Test case 1
-  it("should properly cite Archive Source with Author v1", () => {
+  it("should properly cite Archive Source, No Description", () => {
     const archive = citeArchiveSource({
       authors: [
         {
@@ -31,7 +31,7 @@ describe("Archive Sources  (APA)", () => {
   });
 
 //*Test case 2
-  it("should properly cite Archive Source with Author v2", () => {
+  it("should properly cite Archive Source, No Title and Name of Collection", () => {
     const archive = citeArchiveSource({
       authors: [
         {
@@ -59,7 +59,7 @@ describe("Archive Sources  (APA)", () => {
   });
 
 //*Test case 3
-  it("should properly cite Archive Source without Author v1", () => {
+  it("should properly cite Archive Source, No Author and No Description", () => {
     const archive = citeArchiveSource({
       authors: [
      
@@ -84,7 +84,7 @@ describe("Archive Sources  (APA)", () => {
   });
 
 //*Test case 4
-  it("should properly cite Archive Source without Author v2", () => {
+  it("should properly cite Archive Source, No Author, No Collection Details, No Repository", () => {
     const archive = citeArchiveSource({
       authors: [
        
