@@ -27,14 +27,30 @@ const getFormattedEditionVolume = ({ edition, volume }) => {
   } else if (hasEditionOnly) {
     formattedEditionVolume = ` (${ordinalEdition} ed.)`;
   } else if (noEditionVolume) {
-    formattedEdition = "";
+    formattedEditionVolume = "";
   }
 
   return formattedEditionVolume;
 };
 
+// for Book Chapter
+const getFormattedVolumePage = (volume, pages) => {
+  let formattedVolumePage;
+
+  const hasVolumeAndPage = volume && pages;
+  const hasPageOnly = !volume && pages;
+
+  if(hasVolumeAndPage) {
+    formattedVolumePage = `(Vol. ${volume}, pp. ${pages})`;
+  } else if(hasPageOnly) {
+    formattedVolumePage = `(pp. ${pages})`;
+  }
+
+  return formattedVolumePage;
+}
+
 const getFormattedVolumeWithPage = ({number, name, pageNumber}) => {
   return `${number} ${name} ${pageNumber}`.trim();
 };
 
-module.exports = { getFormattedVolume, getFormattedEditionVolume, getFormattedVolumeWithPage }
+module.exports = { getFormattedVolume, getFormattedEditionVolume, getFormattedVolumePage ,getFormattedVolumeWithPage }
