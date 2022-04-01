@@ -15,7 +15,7 @@ describe("Books (APA)", () => {
     });
 
     expect(book).toEqual(
-      "Florian, L. (2022). The SAGE handbook of special education (2nd ed., Vol. 1). SAGE Publications."
+      "Florian, L. (2022). <i>The SAGE handbook of special education</i> (2nd ed., Vol. 1). SAGE Publications."
     );
   });
 
@@ -33,7 +33,7 @@ describe("Books (APA)", () => {
     });
     
     expect(book).toEqual(
-      "Florian, L. (2022). The SAGE handbook of special education. SAGE Publications."
+      "Florian, L. (2022). <i>The SAGE handbook of special education</i>. SAGE Publications."
     );
   });
 
@@ -51,7 +51,7 @@ describe("Books (APA)", () => {
     });
     
     expect(book).toEqual(
-      "Florian, L. (2022). The SAGE handbook of special education (2nd ed.). SAGE Publications."
+      "Florian, L. (2022). <i>The SAGE handbook of special education</i> (2nd ed.). SAGE Publications."
     );
   });
 
@@ -69,7 +69,26 @@ describe("Books (APA)", () => {
     });
 
     expect(book).toEqual(
-      "Florian, L. (n.d.). The SAGE handbook of special education (2nd ed., Vol. 1). SAGE Publications. https://uk.sagepub.com/en-gb/eur/the-sage-handbook-of-special-education/book237524"
+      "Florian, L. (n.d.). <i>The SAGE handbook of special education</i> (2nd ed., Vol. 1). SAGE Publications. https://uk.sagepub.com/en-gb/eur/the-sage-handbook-of-special-education/book237524"
+    );
+  });
+
+  it("should properly cite online book, No Year", () => {
+    const book = citeBook({
+      authors: [{ firstName: "Lani", lastName: "Florian", middleInitial: null, }, { firstName: "John", lastName: "Watson", middleInitial: "H" }, 
+      { firstName: "Sherlock", lastName: "Holmes", middleInitial:"J", }, { firstName: "Peter", lastName: "Parker", middleInitial: null}, ],
+      year: null,
+      book: {
+        title: "The SAGE handbook of special education",
+        edition: 2,
+        volume: 1,
+        publisher: "SAGE Publications",
+        link: "https://uk.sagepub.com/en-gb/eur/the-sage-handbook-of-special-education/book237524",
+      },
+    });
+
+    expect(book).toEqual(
+      "Florian, L., Watson, J. H., Holmes, S. J., & Parker, P. (n.d.). <i>The SAGE handbook of special education</i> (2nd ed., Vol. 1). SAGE Publications. https://uk.sagepub.com/en-gb/eur/the-sage-handbook-of-special-education/book237524"
     );
   });
 
@@ -88,12 +107,15 @@ describe("Books (APA)", () => {
         publisher: "Greenwood",
         link: null,
       },
-      pages: "53-76",
+      pages: {
+        start: 53,
+        end: 76,
+      },
     });
 
     expect(bookChapter).toEqual(
-      "Bergquist, J. M. (1992). German Americans. In J. D. Buenker & L. A. Ratner (Eds.), Multiculturalism in the United States:"
-      + "A comparative guide to acculturation and ethnicity (Vol. 3, pp. 53-76). Greenwood."
+      "Bergquist, J. M. (1992). German Americans. In J. D. Buenker & L. A. Ratner (Eds.), <i>Multiculturalism in the United States:"
+      + "A comparative guide to acculturation and ethnicity</i> (Vol. 3, pp. 53-76). Greenwood."
     );
   });
 
@@ -112,12 +134,15 @@ describe("Books (APA)", () => {
         publisher: "Greenwood",
         link: null,
       },
-      pages: "53-76",
+      pages: {
+        start: 53,
+        end: 76,
+      },
     });
 
     expect(bookChapter).toEqual(
-      "Bergquist, J. M. (n.d.). German Americans. In J. D. Buenker & L. A. Ratner (Eds.), Multiculturalism in the United States:"
-      + "A comparative guide to acculturation and ethnicity (pp. 53-76). Greenwood."
+      "Bergquist, J. M. (n.d.). German Americans. In J. D. Buenker & L. A. Ratner (Eds.), <i>Multiculturalism in the United States:"
+      + "A comparative guide to acculturation and ethnicity</i> (pp. 53-76). Greenwood."
     );
   });
 
@@ -136,12 +161,15 @@ describe("Books (APA)", () => {
         publisher: "Greenwood",
         link: "https://www.tandfonline.com/doi/abs/10.1080/03612759.1993.9948648",
       },
-      pages: "53-76",
+      pages: {
+        start: 53,
+        end: 76,
+      },
     });
 
     expect(bookChapter).toEqual(
-      "Bergquist, J. M. (1992). German Americans. In J. D. Buenker & L. A. Ratner (Eds.), Multiculturalism in the United States:"
-      + "A comparative guide to acculturation and ethnicity (Vol. 3, pp. 53-76). Greenwood. Retrieved from https://www.tandfonline.com/doi/abs/10.1080/03612759.1993.9948648"
+      "Bergquist, J. M. (1992). German Americans. In J. D. Buenker & L. A. Ratner (Eds.), <i>Multiculturalism in the United States:"
+      + "A comparative guide to acculturation and ethnicity</i> (Vol. 3, pp. 53-76). Greenwood. Retrieved from https://www.tandfonline.com/doi/abs/10.1080/03612759.1993.9948648"
     );
   });
 
@@ -156,7 +184,7 @@ describe("Books (APA)", () => {
       year: "1961",
       title: "The standard edition of the complete psychological works of Sigmund Freud",
       volume: "19",
-      page: {
+      pages: {
         start: "3",
         end: "66",
       },
@@ -166,6 +194,36 @@ describe("Books (APA)", () => {
 
     expect(book).toEqual(
       "Freud, S. (1961). <i>The standard edition of the complete psychological works of Sigmund Freud</i> (Vol. 19, pp. 3-66). Hogarth Press. (Original work published 1923)"
+    );
+  });
+
+  it("should properly cite a republished book, No Volume, Year, and Publication Year, Two Authors", () => {
+    const book = citeRepublishedBook({
+      authors: [
+        {
+          firstName: "Sigmund",
+          lastName: "Freud",
+          middleInitial: null,
+        },
+        {
+          firstName: "John",
+          lastName: "Watson",
+          middleInitial: "H",
+        }
+      ],
+      year: null,
+      title: "The standard edition of the complete psychological works of Sigmund Freud",
+      volume: null,
+      pages: {
+        start: "3",
+        end: "66",
+      },
+      publisher: "Hogarth Press",
+      origPubYear: null,
+    });
+
+    expect(book).toEqual(
+      "Freud, S., & Watson, J. H. (n.d.). <i>The standard edition of the complete psychological works of Sigmund Freud</i> (pp. 3-66). Hogarth Press. (Original work published n.d.)"
     );
   });
 });

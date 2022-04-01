@@ -56,13 +56,13 @@ describe("Dictionary or Encyclopedia  (APA)", () => {
     );
   });
 
-  it("should properly cite (print)", () => {
+  it("should properly cite (print with author), No Date and Edition", () => {
     const dictorEncyclo = citeDictOrEncyclo({
-      authors: [],
-      date: "2015",
+      authors: [ { lastName: "Watson", firstName: "John", middleInitial: "H"}],
+      date: null,
       term: "Mood induction",
       editors: [],
-      edition: "2",
+      edition: null,
       page: "667",
       sourceTitle: "APA dictionary of psychology",
       url: "",
@@ -71,7 +71,26 @@ describe("Dictionary or Encyclopedia  (APA)", () => {
     });
 
     expect(dictorEncyclo).toEqual(
-      "American Psychological Association. (2015). Mood induction. In <i>APA dictionary of psychology</i> (2 ed., p.667). Washington, DC: American Psychological Association."
+      "Watson, J. H. (n.d.). Mood induction. In <i>APA dictionary of psychology</i> (p.667). Washington, DC: American Psychological Association."
+    );
+  });
+
+  it("should properly cite (print without author), No Page", () => {
+    const dictorEncyclo = citeDictOrEncyclo({
+      authors: [],
+      date: "2015",
+      term: "Mood induction",
+      editors: [],
+      edition: "2",
+      page: null,
+      sourceTitle: "APA dictionary of psychology",
+      url: "",
+      city: "Washington, DC",
+      publisher: "American Psychological Association",
+    });
+
+    expect(dictorEncyclo).toEqual(
+      "American Psychological Association. (2015). Mood induction. In <i>APA dictionary of psychology</i> (2 ed.). Washington, DC: American Psychological Association."
     );
   });
 });

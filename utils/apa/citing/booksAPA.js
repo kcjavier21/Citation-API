@@ -5,9 +5,17 @@ const citeBook = ({ authors, year, book }) => {
   const formattedEditionVolume = getFormattedEditionVolume(book);
   const formattedLink = getFormattedLink(book);
   const formattedYear = year ? year : "n.d.";
+  let bookCitation;
 
-  let bookCitation = `${formattedAuthors} (${formattedYear}). `;
-  bookCitation += `${book.title}${formattedEditionVolume}. ${book.publisher}.${formattedLink}`;
+  const hasAuthor = formattedAuthors != "";
+
+  if(hasAuthor) {
+    bookCitation = `${formattedAuthors} (${formattedYear}). `;
+    bookCitation += `<i>${book.title}</i>${formattedEditionVolume}. ${book.publisher}.${formattedLink}`;
+  } else {
+    bookCitation = `${book.title}${formattedEditionVolume}. (${formattedYear}). `;
+    bookCitation += `${book.publisher}.${formattedLink}`;
+  }
 
   return bookCitation;
 };
@@ -18,26 +26,28 @@ const citeBookChapter = ({ authors, year, chapter, editors, book, pages }) => {
   const formattedVolumePage = getFormattedVolumePage(book.volume, pages);
   const formattedLink = book.link ? ` Retrieved from${getFormattedLink(book)}`: "";
   const formattedYear = year ? year : "n.d.";
+  let bookChapter;
 
-  let bookChapter = `${formattedAuthors} (${formattedYear}). ${chapter}. ${formattedEditors}`;
-  bookChapter += `${book.title} ${formattedVolumePage}. ${book.publisher}.${formattedLink}`;
+  const hasAuthor = formattedAuthors != "";
+
+  if(hasAuthor) {
+    bookChapter = `${formattedAuthors} (${formattedYear}). ${chapter}. ${formattedEditors}`;
+    bookChapter += `<i>${book.title}</i> ${formattedVolumePage}${book.publisher}.${formattedLink}`;
+  } else {
+    bookChapter = `${chapter} (${formattedYear}). ${formattedEditors}`;
+    bookChapter += `<i>${book.title}</i> ${formattedVolumePage}${book.publisher}.${formattedLink}`;
+  }
 
   return bookChapter;
 };
 
 
-const citeRepublishedBook = ({ authors, year, title, volume, page, publisher, origPubYear }) => {
-  let formattedAuthor = "";
+const citeRepublishedBook = ({ authors, year, title, volume, pages, publisher, origPubYear }) => {
+  const formattedAuthor = getFormattedAuthors(authors);
   const formattedVolume = volume ? `Vol. ${volume}, ` : "";
   const formattedYear = year ? year : "n.d.";
   const formattedOrigPubYear = origPubYear ? origPubYear : "n.d.";
-  const formattedPage =
-    page && page.end ? `pp. ${page.start}-${page.end}` : page && !page.end ? `pp. ${page.start}` : "";
-  const pageAndVolume = `(${formattedVolume}${formattedPage}). `;
-
-  if (authors.length === 1) {
-    formattedAuthor = `${authors[0].lastName}, ${authors[0].firstName[0]}.`;
-  }
+  const pageAndVolume = getFormattedVolumePage(volume, pages);
 
   const referenceCitation = `${formattedAuthor} (${formattedYear}). <i>${title}</i> ${pageAndVolume}${publisher}. (Original work published ${formattedOrigPubYear})`;
   return referenceCitation;
@@ -61,5 +71,3 @@ const citeRepublishedBook = ({ authors, year, title, volume, page, publisher, or
 
 module.exports = { citeBook, citeBookChapter, citeRepublishedBook };
 
-//CHANGES
-// - changed date to year

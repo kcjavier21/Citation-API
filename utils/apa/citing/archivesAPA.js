@@ -1,7 +1,5 @@
-// TODO: Insert here the citation API for Archive sources
 const { getFormattedAuthors, getFormattedDate } = require("../helper/format");
 
-//*Main Function
 const citeArchiveSource = ({authors, date, title, description, collection, repository}) => {
 
   let finalAuthors = getFormattedAuthors(authors);
@@ -10,13 +8,14 @@ const citeArchiveSource = ({authors, date, title, description, collection, repos
   let finalDescription = description ? ` [${description}].` : '';
   let finalCollection = formatCollection(collection);
   let finalRepository = formatRepository(repository);
-
   let finalFormat = ""; 
-  if (finalAuthors != "") {
+
+  const hasNoAuthors = finalAuthors != "";
+
+  if (hasNoAuthors) {
       finalFormat = finalAuthors + finalDate + finalTitle + finalDescription + finalCollection + finalRepository;
   }
   else {
-      //if no author, title is found at the start of the citation.
       finalFormat = finalTitle + finalDate + finalDescription + finalCollection + finalRepository;
   }
   return finalFormat;
@@ -25,10 +24,13 @@ const citeArchiveSource = ({authors, date, title, description, collection, repos
 //*Helper function: Formats title based on if there is an existing author or not.
 function formatTitle(title, authors) {
   let formattedTitle = "";
-  if (title != "" && authors == "") {
+  hasTitleAndAuthors = title != "" && authors == "";
+  hasTitleAndNoAuthor = title != "" && authors != "";
+
+  if (hasTitleAndAuthors) {
     return formattedTitle = `${title}.`;
   }
-  else if (title != "") {
+  else if (hasTitleAndNoAuthor) {
     return formattedTitle = ` <i>${title}.</i>`;
   }
   else {
@@ -41,11 +43,14 @@ function formatCollection(collection) {
   //concatenating all collection details into a single variable.
   let formattedCollection = "";
 
-  if (isObjEmpty(collection) != true) {
+  const hasCollection = isObjEmpty(collection) != true;
+  const hasCollectionDetails = collection.Details != "";
+
+  if (hasCollection) {
     if (collection.Name != "") {
       formattedCollection += ` ${collection.Name}`;
     }
-    if (collection.Details != "") {
+    if (hasCollectionDetails) {
       formattedCollection += ` (${collection.Details}).`;
     }
     else {
@@ -67,10 +72,14 @@ function isObjEmpty(collection) {
   //*City can be given without reposity name.
 function formatRepository(repository) {
   let formattedRepository = "";
-  if (repository.Name != "" && repository.City != "") {
+
+  const hasRepositoryNameAndCity = repository.Name != "" && repository.City != "";
+  const hasCityOnly = repository.City != "";
+
+  if (hasRepositoryNameAndCity) {
     return formattedRepository = ` ${repository.Name}, ${repository.City}.`;
   }
-  else if (repository.City != "") {
+  else if (hasCityOnly) {
     return formattedRepository = ` ${repository.City}.`;
   }
   else {

@@ -8,7 +8,9 @@ const citeBrochure = ({ authors, date, title, docType, publisher }) => {
   const formattedDocType = ` [${docType}]. `;
   const formattedPublisher = `${publisher}.`;
 
-  if (formattedAuthor != "") {
+  const hasAuthors = formattedAuthor != "";
+
+  if (hasAuthors) {
     return formattedAuthor + formattedYear + formattedTitle + formattedDocType + formattedPublisher;
   } else {
     return formattedPublisher + formattedYear + formattedTitle + formattedDocType + formattedPublisher;
