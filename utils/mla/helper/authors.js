@@ -18,11 +18,11 @@ const _formatWithAuthors = (authors) => {
     const hasMoreThanTwoAuthors = authors.length > 2;
 
     if (hasOneAuthor) {
-        return `${authors[0].lastName}, ${authors[0].firstName}`;
+        return `${authors[0].lastName}, ${authors[0].firstName}. `;
     } else if (hasTwoAuthors) {
-        return `${authors[0].lastName}, ${authors[0].firstName}, and ${authors[1].firstName} ${authors[1].lastName}`
+        return `${authors[0].lastName}, ${authors[0].firstName}, and ${authors[1].firstName} ${authors[1].lastName}. `;
     } else if (hasMoreThanTwoAuthors) {
-        return `${authors[0].lastName}, ${authors[0].firstName}, et al`;
+        return `${authors[0].lastName}, ${authors[0].firstName}, et al. `;
     }
 }
 

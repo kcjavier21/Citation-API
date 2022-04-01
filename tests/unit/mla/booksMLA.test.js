@@ -8,7 +8,7 @@ describe("Books (MLA)", () => {
       container: "Pride and Prejudice and Zombies",
       contributor: { type: null, firstName: null, lastName: null },
       version: null,
-      number: null,
+      volume: null,
       publisher: "Quirk",
       year: "2015",
       pages: null,
@@ -28,10 +28,10 @@ describe("Books (MLA)", () => {
       contributor: { type: null, firstName: null, lastName: null },
       reader: "Kindle Edition",
       version: null,
-      number: null,
+      volume: null,
       publisher: "Scribner",
       year: "2014",
-      pages: null,
+      pages: "",
     });
     expect(bookReader).toEqual(
       "Doer, Anthony. <i>All the Light We Cannot See</i>. Kindle Edition, Scribner, 2014."
@@ -45,7 +45,7 @@ describe("Books (MLA)", () => {
       container: "If I Can’t Have You: Susan Powell, Her Mysterious Disappearance, and the Murder of Her Children",
       contributor: { type: null, firstName: null, lastName: null },
       version: null,
-      number: null,
+      volume: null,
       publisher: "St. Martin’s True Crime",
       year: "2015",
       pages: "18-22",
