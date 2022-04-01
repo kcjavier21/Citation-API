@@ -1,4 +1,4 @@
-const { getFormattedAuthors, getFormattedEditionVolume, getFormattedLink } = require("../helper/format");
+const { getFormattedAuthors, getFormattedEditionVolume, getFormattedVolumePage, getFormattedLink, getFormattedEditors } = require("../helper/format");
 
 const citeBook = ({ authors, year, book }) => {
   const formattedAuthors = getFormattedAuthors(authors);
@@ -11,6 +11,20 @@ const citeBook = ({ authors, year, book }) => {
 
   return bookCitation;
 };
+
+const citeBookChapter = ({ authors, year, chapter, editors, book, pages }) => {
+  const formattedAuthors = getFormattedAuthors(authors);
+  const formattedEditors = editors? `In ${getFormattedEditors(editors)}` : "";
+  const formattedVolumePage = getFormattedVolumePage(book.volume, pages);
+  const formattedLink = getFormattedLink(book);
+  const formattedYear = year ? year : "n.d.";
+
+  let bookChapter = `${formattedAuthors} (${formattedYear}). ${chapter}. ${formattedEditors}`;
+  bookChapter += `${book.title} ${formattedVolumePage}. ${book.publisher}.${formattedLink}`;
+
+  return bookChapter;
+};
+
 
 const citeRepublishedBook = ({ authors, year, title, volume, page, publisher, origPubYear }) => {
   let formattedAuthor = "";
@@ -45,7 +59,7 @@ const citeRepublishedBook = ({ authors, year, title, volume, page, publisher, or
 
 // console.log(citeRepublishedBook(data));
 
-module.exports = { citeBook, citeRepublishedBook };
+module.exports = { citeBook, citeBookChapter, citeRepublishedBook };
 
 //CHANGES
 // - changed date to year
