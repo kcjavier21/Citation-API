@@ -1,9 +1,13 @@
 const { getFormattedAuthors } = require("./authors");
 const { getFormattedContributor } = require("./contributor");
-const { getFormattedNumber } = require("./number");
+const { getFormattedVolume } = require("./volume");
+const { getFormattedPages } = require("./pages");
+const { getFormattedDate } = require("./date");
 
 module.exports = {
     getFormattedAuthors,
     getFormattedContributor,
-    getFormattedNumber,
+    getFormattedVolume,
+    getFormattedPages,
+    getFormattedDate
 };
