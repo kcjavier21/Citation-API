@@ -11,7 +11,7 @@ const citePublishedThesis = ({ authors, year, title, kind, institution, reposito
   const formattedYear = year ? year : "n.d.";
 
   let publishedThesisCitation = `${formattedAuthors} (${formattedYear}). `;
-  publishedThesisCitation += `${title} [${kind}, ${institution}]. ${repository}. ${link}.`;
+  publishedThesisCitation += `<i>${title}</i> [${kind}, ${institution}]. ${repository}. ${link}.`;
 
   return publishedThesisCitation;
 };
@@ -26,7 +26,7 @@ const citeUnpublishedThesis = ({ authors, year, title, kind, institution }) => {
     const formattedYear = year ? year : "n.d.";
   
     let unpublishedThesisCitation = `${formattedAuthors} (${formattedYear}). `;
-    unpublishedThesisCitation += `${title} [${kind}]. ${institution}.`;
+    unpublishedThesisCitation += `<i>${title}</i> [${kind}]. ${institution}.`;
   
     return unpublishedThesisCitation;
   };

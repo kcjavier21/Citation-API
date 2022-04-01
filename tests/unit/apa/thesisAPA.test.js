@@ -16,7 +16,7 @@ describe("Thesis (APA)", () => {
           repository: "The University of Waikato Research Commons",
           link: "https://hdl.handle.net/10289/11614",
         });
-        expect(publishedThesis).toEqual("Kelly, C. D. (2018). The art of coffee roasting [Doctoral thesis, The University of Waikato]. The University of Waikato Research Commons. https://hdl.handle.net/10289/11614.");
+        expect(publishedThesis).toEqual("Kelly, C. D. (2018). <i>The art of coffee roasting</i> [Doctoral thesis, The University of Waikato]. The University of Waikato Research Commons. https://hdl.handle.net/10289/11614.");
     });
 
     // Imber, A. (2003). Applicant reactions to graduate 
@@ -31,6 +31,6 @@ describe("Thesis (APA)", () => {
           kind: "Unpublished doctoral dissertation",
           institution: "Monash University",
         });
-        expect(unpublishedThesis).toEqual("Imber, A. (2003). Applicant reactions to graduate recruitment and selection [Unpublished doctoral dissertation]. Monash University.");
+        expect(unpublishedThesis).toEqual("Imber, A. (2003). <i>Applicant reactions to graduate recruitment and selection</i> [Unpublished doctoral dissertation]. Monash University.");
     });
 });

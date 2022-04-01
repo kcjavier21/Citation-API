@@ -9,7 +9,7 @@ const citeReport = ({ author, date, title, report }) => {
     const formattedLink = getFormattedLink(report);
 
     let reportCitation = `${author}.${formattedDate} `;
-    reportCitation += `${title}${formattedPaperNo}. ${report.publisher}.${formattedLink}`;
+    reportCitation += `<i>${title}</i>${formattedPaperNo}. ${report.publisher}.${formattedLink}`;
 
     return reportCitation;
 }

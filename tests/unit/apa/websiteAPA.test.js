@@ -16,7 +16,7 @@ describe("Website (APA)", () => {
       },
     });
     expect(website).toEqual(
-      "Cain, K. (2012). The negative effects of Facebook on communication. Social Media Today. http://socialmediatoday.com"
+      "Cain, K. (2012). <i>The negative effects of Facebook on communication</i>. Social Media Today. http://socialmediatoday.com"
     );
   });
 });

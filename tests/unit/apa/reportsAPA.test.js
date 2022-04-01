@@ -13,6 +13,6 @@ describe("Reports (APA)", () => {
       },
     });
 
-    expect(report).toEqual("Hershey Foods Corporation. (2001). 2001 Annual report (Working Paper No. 3). Wiley.");
+    expect(report).toEqual("Hershey Foods Corporation. (2001). <i>2001 Annual report</i> (Working Paper No. 3). Wiley.");
   });
 });

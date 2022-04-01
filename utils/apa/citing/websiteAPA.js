@@ -6,7 +6,7 @@ const citeWebsite = ({ authors, year, article, website }) => {
   const formattedLink = getFormattedLink(website);
 
   let websiteCitation = `${formattedAuthors} (${formattedYear}). `;
-  websiteCitation += `${article}. ${website.title}.${formattedLink}`;
+  websiteCitation += `<i>${article}</i>. ${website.title}.${formattedLink}`;
 
   return websiteCitation;
 };
