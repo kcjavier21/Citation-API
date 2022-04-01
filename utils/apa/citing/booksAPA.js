@@ -14,9 +14,9 @@ const citeBook = ({ authors, year, book }) => {
 
 const citeBookChapter = ({ authors, year, chapter, editors, book, pages }) => {
   const formattedAuthors = getFormattedAuthors(authors);
-  const formattedEditors = editors? `In ${getFormattedEditors(editors)}` : "";
+  const formattedEditors = editors ? `In ${getFormattedEditors(editors)}` : "";
   const formattedVolumePage = getFormattedVolumePage(book.volume, pages);
-  const formattedLink = getFormattedLink(book);
+  const formattedLink = book.link ? ` Retrieved from${getFormattedLink(book)}`: "";
   const formattedYear = year ? year : "n.d.";
 
   let bookChapter = `${formattedAuthors} (${formattedYear}). ${chapter}. ${formattedEditors}`;

@@ -55,10 +55,10 @@ describe("Books (APA)", () => {
     );
   });
 
-  it("should properly cite online book", () => {
+  it("should properly cite online book, No Year", () => {
     const book = citeBook({
       authors: [{ firstName: "Lani", lastName: "Florian" }],
-      year: "2022",
+      year: null,
       book: {
         title: "The SAGE handbook of special education",
         edition: 2,
@@ -69,14 +69,9 @@ describe("Books (APA)", () => {
     });
 
     expect(book).toEqual(
-      "Florian, L. (2022). The SAGE handbook of special education (2nd ed., Vol. 1). SAGE Publications. https://uk.sagepub.com/en-gb/eur/the-sage-handbook-of-special-education/book237524"
+      "Florian, L. (n.d.). The SAGE handbook of special education (2nd ed., Vol. 1). SAGE Publications. https://uk.sagepub.com/en-gb/eur/the-sage-handbook-of-special-education/book237524"
     );
   });
-
-  // Bergquist, J. M. (1992). German Americans. In J. D. Buenker 
-// & L. A. Ratner (Eds.), Multiculturalism in the United States:
-// A comparative guide to acculturation and ethnicity (Vol. 3, 
-// pp. 53–76). Greenwood
 
   it("should properly cite a chapter of the book", () => {
     const bookChapter = citeBookChapter({
@@ -99,6 +94,54 @@ describe("Books (APA)", () => {
     expect(bookChapter).toEqual(
       "Bergquist, J. M. (1992). German Americans. In J. D. Buenker & L. A. Ratner (Eds.), Multiculturalism in the United States:"
       + "A comparative guide to acculturation and ethnicity (Vol. 3, pp. 53-76). Greenwood."
+    );
+  });
+
+  it("should properly cite a chapter of the book, No Volume and Year", () => {
+    const bookChapter = citeBookChapter({
+      authors: [{ firstName: "John", lastName: "Bergquist", middleInitial: "M" }],
+      year: null,
+      chapter: "German Americans",
+      editors: [
+        { firstName: "John", lastName: "Buenker", middleInitial: "D" },
+        { firstName: "Lorman", lastName: "Ratner", middleInitial: "A" },
+      ],
+      book: {
+        title: "Multiculturalism in the United States:A comparative guide to acculturation and ethnicity",
+        volume: null,
+        publisher: "Greenwood",
+        link: null,
+      },
+      pages: "53-76",
+    });
+
+    expect(bookChapter).toEqual(
+      "Bergquist, J. M. (n.d.). German Americans. In J. D. Buenker & L. A. Ratner (Eds.), Multiculturalism in the United States:"
+      + "A comparative guide to acculturation and ethnicity (pp. 53-76). Greenwood."
+    );
+  });
+
+  it("should properly cite a chapter of the book with Link", () => {
+    const bookChapter = citeBookChapter({
+      authors: [{ firstName: "John", lastName: "Bergquist", middleInitial: "M" }],
+      year: "1992",
+      chapter: "German Americans",
+      editors: [
+        { firstName: "John", lastName: "Buenker", middleInitial: "D" },
+        { firstName: "Lorman", lastName: "Ratner", middleInitial: "A" },
+      ],
+      book: {
+        title: "Multiculturalism in the United States:A comparative guide to acculturation and ethnicity",
+        volume: 3,
+        publisher: "Greenwood",
+        link: "https://www.tandfonline.com/doi/abs/10.1080/03612759.1993.9948648",
+      },
+      pages: "53-76",
+    });
+
+    expect(bookChapter).toEqual(
+      "Bergquist, J. M. (1992). German Americans. In J. D. Buenker & L. A. Ratner (Eds.), Multiculturalism in the United States:"
+      + "A comparative guide to acculturation and ethnicity (Vol. 3, pp. 53-76). Greenwood. Retrieved from https://www.tandfonline.com/doi/abs/10.1080/03612759.1993.9948648"
     );
   });
 
