@@ -16,6 +16,7 @@ const newspapers = require("./routes/apa/newspapers");
 const preprint = require("./routes/apa/preprint")
 const reports = require("./routes/apa/reports");
 const websites = require("./routes/apa/websites");
+const ytVideo = require("./routes/apa/ytVideo");
 
 // === APP ===
 const app = express();
@@ -38,6 +39,7 @@ app.use("/api/apa/newspapers", newspapers);
 app.use("/api/apa/preprint-articles", preprint);
 app.use("/api/apa/reports", reports);
 app.use("/api/apa/websites", websites);
+app.use("/api/apa/yt-video", ytVideo);
 
 // === PORT ===
 const port = process.env.port || 8000;
