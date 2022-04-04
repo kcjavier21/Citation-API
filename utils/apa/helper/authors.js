@@ -12,7 +12,7 @@ const getFormattedAuthors = (authors) => {
   return formattedAuthors;
 };
 
-const formatAuthorName = ({ firstName, lastName, middleInitial }) => {
+const formatAuthorName = ({ firstName, lastName, middleInitial, role }) => {
     // const firstNames = firstName.split(" ");
     let firstInitial = ` ${firstName[0]}.`;
     let formattedMiddleInitial = '';
@@ -20,6 +20,10 @@ const formatAuthorName = ({ firstName, lastName, middleInitial }) => {
     if (middleInitial) { 
       if (middleInitial[1] != ".") formattedMiddleInitial = ` ${middleInitial}.`;
       else formattedMiddleInitial = ` ${middleInitial}`;
+    }
+
+    if (role){
+      return `${lastName},${firstInitial}${formattedMiddleInitial} (${role})`;
     }
 
     return `${lastName},${firstInitial}${formattedMiddleInitial}`;
