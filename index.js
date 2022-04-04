@@ -17,6 +17,10 @@ const newspapers = require("./routes/apa/newspapers");
 const preprint = require("./routes/apa/preprint")
 const reports = require("./routes/apa/reports");
 const websites = require("./routes/apa/websites");
+
+const youTube = require("./routes/apa/youTube");
+const movies = require("./routes/apa/movies");
+
 // == MLA (format) ==
 const booksMLA = require("./routes/mla/books")
 const journMagNews = require("./routes/mla/journMagNews");
@@ -43,6 +47,9 @@ app.use("/api/apa/newspapers", newspapers);
 app.use("/api/apa/preprint-articles", preprint);
 app.use("/api/apa/reports", reports);
 app.use("/api/apa/websites", websites);
+
+app.use("/api/apa/youtube", youTube);
+app.use("/api/apa/movies", movies);
 // == MLA (format) ==
 app.use("/api/mla/books", booksMLA);
 app.use("/api/mla/journal-magazine-newspaper", journMagNews);
