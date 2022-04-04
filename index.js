@@ -8,7 +8,7 @@ const archives = require("./routes/apa/archives");
 const books = require("./routes/apa/books");
 const brochures = require("./routes/apa/brochures");
 const cases = require("./routes/apa/cases");
-const dataset = require("./routes/apa/dataset")
+const datasets = require("./routes/apa/datasets")
 const dictionaryOrEncyclopedia = require("./routes/apa/dictionaryOrEncyclopedias");
 const internationalAgreement = require("./routes/apa/internationalAgreements");
 const journals = require("./routes/apa/journals");
@@ -38,7 +38,7 @@ app.use("/api/apa/archives", archives);
 app.use("/api/apa/books", books);
 app.use("/api/apa/brochures-pamphlets-and-paintings", brochures);
 app.use("/api/apa/cases", cases);
-app.use("/api/apa/datasets", dataset);
+app.use("/api/apa/datasets", datasets);
 app.use("/api/apa/dictionary-or-encyclopedias", dictionaryOrEncyclopedia);
 app.use("/api/apa/international-agreements", internationalAgreement);
 app.use("/api/apa/journals", journals);
@@ -50,6 +50,7 @@ app.use("/api/apa/websites", websites);
 
 app.use("/api/apa/youtube", youTube);
 app.use("/api/apa/movies", movies);
+
 // == MLA (format) ==
 app.use("/api/mla/books", booksMLA);
 app.use("/api/mla/journal-magazine-newspaper", journMagNews);

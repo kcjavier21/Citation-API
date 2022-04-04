@@ -13,12 +13,12 @@ const citeSpecial = ({ author, date, title, producer }) => {
 data = {
  author: [
 	{
-	    firstName: "L.",
+	    firstName: "L",
 	    middleInitial: "",
 	    lastName: "Jenkins", 
 	},
     {
-	    firstName: "R   .",
+	    firstName: "R",
 	    middleInitial: "",
 	    lastName: "Astley", 
 	},

@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { citeMovie } = require("../../utils/apa/citing/movieAPA.js");
+const { citeMovie } = require("../../utils/apa/citing/moviesAPA.js");
 
 router.post("/", (req, res) => {
   const data = req.body;

@@ -1,4 +1,4 @@
-const { citeDataset } = require("../../../utils/apa/citing/datasetAPA")
+const { citeDataset } = require("../../../utils/apa/citing/datasetsAPA")
 
 describe("dataset sources (APA)", () => {
 
