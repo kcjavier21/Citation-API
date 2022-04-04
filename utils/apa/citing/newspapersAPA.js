@@ -1,12 +1,37 @@
-const { getFormattedAuthors, getFormattedDate } = require("../helper/format");
+const { getFormattedAuthors, getFormattedDate, getFormattedPages } = require("../helper/format");
 
-const citeNewspaper = ({ authors, date, article, newspaper }) => {
+const citeNewspaper = ({ authors, date, article, pages, newspaper }) => {
   const formattedAuthors = getFormattedAuthors(authors);
   const formattedDate = getFormattedDate(date);
+  const formattedPages = pages ? `, ${getFormattedPages(pages)}` : "";
+  let newspaperCitation;
 
-  let newspaperCitation = `${formattedAuthors}${formattedDate} ${article}. <i>${newspaper.title}</i>, ${newspaper.pages}.`;
+  const hasAuthor = formattedAuthors != "";
+
+  if(hasAuthor) {
+    newspaperCitation = `${formattedAuthors}${formattedDate} ${article}. <i>${newspaper}</i>${formattedPages}.`;
+  } else {
+    newspaperCitation = `${article}${formattedDate} <i>${newspaper}</i>${formattedPages}.`;
+  }
 
   return newspaperCitation;
 };
 
-module.exports = { citeNewspaper };
+const citeOnlineNewspaper = ({ authors, date, article, newspaper, pages, link }) => {
+  const formattedAuthors = getFormattedAuthors(authors);
+  const formattedDate = getFormattedDate(date);
+  const formattedPages = pages ? `, ${getFormattedPages(pages)}` : "";
+  const formattedLink = link ? `${link}.` : "";
+  let onlineNewspaperCitation;
+
+  const hasAuthor = formattedAuthors != "";
+
+  if(hasAuthor) {
+    onlineNewspaperCitation = `${formattedAuthors}${formattedDate} ${article}. <i>${newspaper}</i>${formattedPages}. ${formattedLink}`;
+  } else {
+    onlineNewspaperCitation = `${article}${formattedDate} <i>${newspaper}</i>${formattedPages}. ${formattedLink}`;
+  }
+  return onlineNewspaperCitation;
+};
+
+module.exports = { citeNewspaper, citeOnlineNewspaper };
