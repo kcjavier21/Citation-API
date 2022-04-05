@@ -41,23 +41,26 @@ const getFormattedVolumePage = (volume, pages) => {
   const hasPageOnly = !volume && pages;
 
   if(hasVolumeAndPage) {
-    formattedVolumePage = `(Vol. ${volume}, pp. ${_formatPages(pages)}). `;
+    formattedVolumePage = `(Vol. ${volume}, pp. ${getFormattedPages(pages)}). `;
   } else if(hasPageOnly) {
-    formattedVolumePage = `(pp. ${_formatPages(pages)}). `;
+    formattedVolumePage = `(pp. ${getFormattedPages(pages)}). `;
   }
 
   return formattedVolumePage;
 }
 
-const _formatPages = ({ start, end }) => {
+const getFormattedPages = ({ start, end }) => {
   const hasStartPageAndEndPage = start && end;
   const hasStartPageOnly = start && !end;
+  const hasNoPages = !start && !end;
   let formattedPages;
  
   if(hasStartPageAndEndPage) {
     formattedPages = `${start}-${end}`;
   } else if(hasStartPageOnly) {
     formattedPages = `${start}`;
+  } else if(hasNoPages) {
+    formattedPages = "";
   }
 
   return formattedPages;
@@ -73,4 +76,4 @@ const getFormattedDetailsAgreement = ({number, name, pageNumber}) => {
   }
 };
 
-module.exports = { getFormattedVolume, getFormattedEditionVolume, getFormattedVolumePage , getFormattedDetailsAgreement }
+module.exports = { getFormattedVolume, getFormattedEditionVolume, getFormattedVolumePage , getFormattedDetailsAgreement, getFormattedPages }
