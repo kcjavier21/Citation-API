@@ -1,7 +1,5 @@
-const { getFormattedAuthors } = require("../helper/authors");
 
 const citeVideo = ({ studio, year, title, place, company }) => {
-    const formattedAuthors = getFormattedAuthors;
     const formattedYear = year ? year : `n.d.`
     const referenceCitation = `${studio} <i>${title}</i> [Video game]. ${formattedYear}  ${place}, ${company}`;
 
@@ -17,5 +15,5 @@ data = {
  company: "Bethesda Softworks",
 };
 
-console.log(citeVideo(data));
+//console.log(citeVideo(data));
 module.exports = { citeVideo };

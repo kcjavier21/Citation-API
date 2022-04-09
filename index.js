@@ -29,9 +29,10 @@ const speech = require("./routes/apa/speech");
 const SpecialIssueAPA = require("./routes/apa/issue");
 const section = require("./routes/apa/section");
 const software = require("./routes/apa/software");
+const video = require("./routes/apa/video");
 
 // == MLA (format) ==
-const booksMLA = require("./routes/mla/books")
+const booksMLA = require("./routes/mla/books");
 const journMagNews = require("./routes/mla/journMagNews");
 
 // === APP ===
@@ -68,6 +69,7 @@ app.use("/api/apa/speech", speech);
 app.use("/api/apa/issue", SpecialIssueAPA);
 app.use("/api/apa/section", section);
 app.use("/api/apa/software", software);
+app.use("/api/apa/video", video);
 
 // == MLA (format) ==
 app.use("/api/mla/books", booksMLA);
