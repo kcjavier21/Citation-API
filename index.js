@@ -28,6 +28,7 @@ const journal = require("./routes/apa/journal");
 const speech = require("./routes/apa/speech");
 const SpecialIssueAPA = require("./routes/apa/issue");
 const section = require("./routes/apa/section");
+const software = require("./routes/apa/software");
 
 // == MLA (format) ==
 const booksMLA = require("./routes/mla/books")
@@ -66,6 +67,7 @@ app.use("/api/apa/journal", journal);
 app.use("/api/apa/speech", speech);
 app.use("/api/apa/issue", SpecialIssueAPA);
 app.use("/api/apa/section", section);
+app.use("/api/apa/software", software);
 
 // == MLA (format) ==
 app.use("/api/mla/books", booksMLA);

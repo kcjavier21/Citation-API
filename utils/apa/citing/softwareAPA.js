@@ -1,7 +1,7 @@
 const { getFormattedAuthors } = require("../helper/authors");
 
 const citeSoftware = ({ author, year, title, place, producer }) => {
-    const formattedAuthors = getFormattedAuthors;
+    const formattedAuthors = getFormattedAuthors (author);
     const formattedYear = year ? year : `n.d.`
     const referenceCitation = `${formattedAuthors} ${formattedYear} <i>${title}</i> [Computer software]. ${place}, ${producer}`;
 
@@ -23,5 +23,5 @@ data = {
  producer: "DC: E & K Press",
 };
 
-console.log(citeSoftware(data));
+//console.log(citeSoftware(data));
 module.exports = { citeSoftware };
