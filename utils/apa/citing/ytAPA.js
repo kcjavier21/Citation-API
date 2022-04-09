@@ -10,18 +10,18 @@ const citeYouTube = ({ author, date, title, url }) => {
 };
 
 
-// //data = {
-// // author: [
-// //	{
-// //	    firstName: "M.",
-// //	    middleInitial: "",
-// 	    lastName: "Apsolon", 
-// 	},
-//    ],
-//  date: new Date(2011, 8, 9),
-//  title: "Real ghost girl caught on Video Tape 14",
-//  url: "http://www.youtube.com/watch?v=6nyGCbxD848",
-// };
+data = {
+    author: [
+	{
+	    firstName: "M.",
+	    middleInitial: "",
+	    lastName: "Apsolon", 
+	},
+   ],
+ date: new Date(2011, 8, 9),
+ title: "Real ghost girl caught on Video Tape 14",
+ url: "http://www.youtube.com/watch?v=6nyGCbxD848",
+};
 
-// console.log(citeYouTube(data));
+console.log(citeYouTube(data));
 module.exports = { citeYouTube };

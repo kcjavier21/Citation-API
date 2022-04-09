@@ -2,9 +2,9 @@ const { getFormattedDate } = require("../helper/dates");
 const { getFormattedAuthors } = require("../helper/authors");
 
 const citeSpecial = ({ author, date, title, producer }) => {
-    const formattedAuthors = getFormattedAuthors (author);
+    const formattedAuthors = getFormattedAuthors;
     const formattedDate = getFormattedDate(date);
-    const referenceCitation = `${formattedAuthors} ${formattedDate} <i>${title}</i> [Speacial Issue]. ${producer}`;
+    const referenceCitation = `${formattedAuthors} (Eds.). ${formattedDate} <i>${title}</i> [Speacial Issue]. ${producer}`;
 
     return referenceCitation;
 };

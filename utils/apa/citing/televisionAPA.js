@@ -2,7 +2,7 @@ const { getFormattedDate } = require("../helper/dates");
 const { getFormattedAuthors } = require("../helper/authors");
 
 const citeTelevision = ({ author, date, title, publisher }) => {
-    const formattedAuthors = getFormattedAuthors (author);
+    const formattedAuthors = getFormattedAuthors;
     const formattedDate = getFormattedDate(date);
     const referenceCitation = `${formattedAuthors} ${formattedDate} <i>${title}</i> [Television broadcast]. ${publisher}`;
 

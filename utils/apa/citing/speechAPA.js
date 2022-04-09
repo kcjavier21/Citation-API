@@ -2,7 +2,7 @@ const { getFormattedDate } = require("../helper/dates");
 const { getFormattedAuthors } = require("../helper/authors");
 
 const citeSpeech = ({ author, date, title, place, publisher }) => {
-    const formattedAuthors = getFormattedAuthors (author);
+    const formattedAuthors = getFormattedAuthors;
     const formattedDate = getFormattedDate(date);
     const referenceCitation = `${formattedAuthors} (Ed.). ${formattedDate} <i>${title}</i>. ${place}, ${publisher}`;
 

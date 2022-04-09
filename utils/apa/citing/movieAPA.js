@@ -9,25 +9,25 @@ const citeMovie = ({ author, year, title, company }) => {
 };
 
 
-// data = {
-//  author: [
-// 	{
-// 	    firstName: "F.",
-// 	    middleInitial: "",
-// 	    lastName: "Davidson",
-// 		role: "Producer", 
-// 	},
-//     {
-// 	    firstName: "J.",
-// 	    middleInitial: "",
-// 	    lastName: "Davidson",
-// 		role: "Director",  
-// 	},
-//    ],
-//  year: "2000",
-//  title: "B. F. Skinner: A fresh appraisal",
-//  company: "USA: Davidson Films",
-// };
+data = {
+ author: [
+	{
+	    firstName: "F.",
+	    middleInitial: "",
+	    lastName: "Davidson",
+		role: "Producer", 
+	},
+    {
+	    firstName: "J.",
+	    middleInitial: "",
+	    lastName: "Davidson",
+		role: "Director",  
+	},
+   ],
+ year: "2000",
+ title: "B. F. Skinner: A fresh appraisal",
+ company: "USA: Davidson Films",
+};
 
-// console.log(citeMovie(data));
+console.log(citeMovie(data));
 module.exports = { citeMovie };
