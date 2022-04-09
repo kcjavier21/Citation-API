@@ -2,7 +2,7 @@ const { getFormattedDate } = require("../helper/dates");
 const { getFormattedAuthors } = require("../helper/authors");
 
 const citeSpecial = ({ author, date, title, producer }) => {
-    const formattedAuthors = getFormattedAuthors;
+    const formattedAuthors = getFormattedAuthors (author);
     const formattedDate = getFormattedDate(date);
     const referenceCitation = `${formattedAuthors} (Eds.). ${formattedDate} <i>${title}</i> [Speacial Issue]. ${producer}`;
 
@@ -28,4 +28,5 @@ data = {
  producer: "International Journal of Memes",
 };
 
-console.log(citeSpecial(data));
+//console.log(citeSpecial(data));
+module.exports = { citeSpecial };
