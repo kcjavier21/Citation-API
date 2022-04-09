@@ -22,6 +22,7 @@ const youTube = require("./routes/apa/youTube");
 const movies = require("./routes/apa/movies");
 
 const youtube = require("./routes/apa/youtube");
+const television = require("./routes/apa/television");
 
 // == MLA (format) ==
 const booksMLA = require("./routes/mla/books")
@@ -54,6 +55,7 @@ app.use("/api/apa/youtube", youTube);
 app.use("/api/apa/movies", movies);
 
 app.use("/api/apa/you-tube", youtube);
+app.use("/api/apa/television", television);
 // == MLA (format) ==
 app.use("/api/mla/books", booksMLA);
 app.use("/api/mla/journal-magazine-newspaper", journMagNews);
