@@ -1,7 +1,7 @@
 const { getFormattedAuthors } = require("../helper/authors");
 
 const citeJournal = ({ author, year, title, titlecase, page }) => {
-    const formattedAuthors = getFormattedAuthors;
+    const formattedAuthors = getFormattedAuthors (author);
 	const formattedYear = year ? year : `n.d.`
     const referenceCitation = `${formattedAuthors}. (${formattedYear}). <i>${title}</i> . ${titlecase}, 42(Suppl. 2), ${page}.`;
 
@@ -28,5 +28,5 @@ data = {
  page: "57-66",
 };
 
-console.log(citeJournal(data));
+//console.log(citeJournal(data));
 module.exports = { citeJournal };
