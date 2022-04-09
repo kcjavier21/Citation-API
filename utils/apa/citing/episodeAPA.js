@@ -16,7 +16,7 @@ data = {
 	    firstName: "D.",
 	    middleInitial: "",
 	    lastName: "Egan",
-		role: "Producer", 
+		role: "Writer", 
 	},
     {
 	    firstName: "J.",
@@ -31,5 +31,5 @@ data = {
  company: "Fox Broadcasting",
 };
 
-console.log(citeEpisode(data));
+//console.log(citeEpisode(data));
 module.exports = { citeEpisode };
