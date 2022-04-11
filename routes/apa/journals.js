@@ -1,10 +1,17 @@
 const express = require("express");
 const router = express.Router();
-const { citeJournalArticle } = require("../../utils/apa/citing/journalsAPA");
+const { citeJournalArticle, citeJournalSupplement } = require("../../utils/apa/citing/journalsAPA");
 
 router.post("/", (req, res) => {
   const data = req.body;
   const result = citeJournalArticle(data);
+
+  res.send(result);
+});
+
+router.post("/journal-supplement", (req, res) => {
+  const data = req.body;
+  const result = citeJournalSupplement(data);
 
   res.send(result);
 });

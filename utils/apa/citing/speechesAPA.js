@@ -4,7 +4,7 @@ const { getFormattedAuthors } = require("../helper/authors");
 const citeSpeech = ({ author, date, title, place, publisher }) => {
     const formattedAuthors = getFormattedAuthors (author);
     const formattedDate = getFormattedDate(date);
-    const referenceCitation = `${formattedAuthors} (Ed.). ${formattedDate} <i>${title}</i>. ${place}, ${publisher}`;
+    const referenceCitation = `${formattedAuthors} (Ed.). ${formattedDate} <i>${title}</i>. ${place}, ${publisher}.`;
 
     return referenceCitation;
 };
@@ -20,7 +20,9 @@ const citeSpeech = ({ author, date, title, place, publisher }) => {
 //  date: new Date(2010),
 //  title: "Well said! Great speeches in American history",
 //  place: "Washington",
-//  publisher: "http://www.youtube.com/watch?v=6nyGCbxD848",
+//  publisher: "DC: E & K Publishing",
 // };
 
 // console.log(citeSpeech(data));
+
+module.exports = { citeSpeech }; 
