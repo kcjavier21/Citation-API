@@ -10,17 +10,19 @@ const citeTelevision = ({ author, date, title, publisher }) => {
 };
 
 
-data = {
- author: [
-	{
-	    firstName: "J.",
-	    middleInitial: "G.",
-	    lastName: "Smith", 
-	},
-   ],
- date: new Date(2000, 8, 19),
- title: "Every day News",
- publisher: "West Broadcasting",
-};
+// data = {
+//  author: [
+// 	{
+// 	    firstName: "J.",
+// 	    middleInitial: "G.",
+// 	    lastName: "Smith", 
+// 	},
+//    ],
+//  date: new Date(1999, 8, 19),
+//  title: "Every day News",
+//  publisher: "West Broadcasting",
+// };
 
-console.log(citeTelevision(data));
+// console.log(citeTelevision(data));
+
+module.exports = { citeTelevision }; 

@@ -1,10 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const { citeYoutube } = require("../../utils/apa/citing/youtubeAPA.js");
+const { citeSpeech } = require("../../utils/apa/citing/speechAPA.js");
 
 router.post("/", (req, res) => {
   const data = req.body;
-  const result = citeYoutube(data);
+  const result = citeSpeech(data);
 
   res.send(result);
 });
