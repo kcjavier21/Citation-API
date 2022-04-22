@@ -28,6 +28,8 @@ const video = require("./routes/apa/video");
 const websites = require("./routes/apa/websites");
 const youtube = require("./routes/apa/youtube");
 
+const single = require("./routes/apa/single");
+
 // == MLA (format) ==
 const booksMLA = require("./routes/mla/books");
 const journMagNews = require("./routes/mla/journMagNews");
@@ -64,6 +66,8 @@ app.use("/api/apa/thesis", thesis);
 app.use("/api/apa/video", video);
 app.use("/api/apa/websites", websites);
 app.use("/api/apa/you-tube", youtube);
+
+app.use("/api/apa/single", single);
 
 // == MLA (format) ==
 app.use("/api/mla/books", booksMLA);

@@ -1,10 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const { citeSofware } = require("../../utils/apa/citing/softwareAPA.js");
+const { citeSingle } = require("../../utils/apa/citing/singleAPA.js");
 
 router.post("/", (req, res) => {
   const data = req.body;
-  const result = citeSoftware(data);
+  const result = citeSingle(data);
 
   res.send(result);
 });
