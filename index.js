@@ -34,6 +34,9 @@ const single = require("./routes/apa/single");
 const booksMLA = require("./routes/mla/books");
 const journMagNews = require("./routes/mla/journMagNews");
 
+const encyclopediA = require("./routes/mla/encylopedia");
+const website = require("./routes/mla/website");
+
 // === APP ===
 const app = express();
 
@@ -72,6 +75,12 @@ app.use("/api/apa/single", single);
 // == MLA (format) ==
 app.use("/api/mla/books", booksMLA);
 app.use("/api/mla/journal-magazine-newspaper", journMagNews);
+
+app.use("/api/mla/encyclopedia", encyclopedia);
+app.use("/api/mla/website", website);
+
+
+
 
 // === PORT ===
 const port = process.env.port || 8000;
