@@ -1,7 +1,5 @@
-const { citeElectronicEncyclopedia } = require("../../../utils/mla/citing/encyclopediaMLA");
+const { citeElectronicEncyclopedia, citePrintedEncyclopedia } = require("../../../utils/mla/citing/encyclopediaMLA");
 
-//   "Wolfgang Amadeus Mozart". Encyclopædia Britannica Online.
-//   Encyclopædia Britannica Inc., 2016. www.britannica.com/biography/WolfgangAmadeus-Mozart
 describe("Enyclopedia (MLA)", () => {
   it("should properly cite an electronic encyclopedia", () => {
     const electronicEncyclopedia = citeElectronicEncyclopedia({
@@ -20,19 +18,19 @@ describe("Enyclopedia (MLA)", () => {
   });
 
 //   "Iverson, Peter. “Navajo.” Encyclopedia Americana. Scholastic Library, 2004.
-  it("should properly cite an electronic encyclopedia", () => {
+  it("should properly cite an electronic encyclopedia without link", () => {
     const printedEncyclopedia = citePrintedEncyclopedia({
-      authors: "Iverson, Peter",
+      authors:  [{ firstName: "Peter", lastName: "Iverson" }],
       title: "Navajo", 
       publication: "Scholastic Library", 
       contributor: { type: null, firstName: null, lastName: null }, 
       version: null, 
       database: "Encyclopedia Americana", 
       year: "2004",
-      location: null
+      location: null,
     });
     expect(printedEncyclopedia).toEqual(
-      `"Iverson, Peter. <i>“Navajo.”</i> Encyclopedia Americana. Scholastic Library, 2004.`
+      `Iverson, Peter. "Navajo". <i>Scholastic Library</i>. Encyclopedia Americana, 2004.`
     );
   });
 });
