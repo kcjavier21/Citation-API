@@ -1,8 +1,6 @@
 const getFormattedEditors = (editors) => {
     let formattededitors;
-  
-    const noAuthor = editors.length === 0;
-  
+    const noAuthor = !(editors.firstName && editors.lastName && editors.middleInitial)
     if (noAuthor) {
       formattededitors = "";
     } else {
