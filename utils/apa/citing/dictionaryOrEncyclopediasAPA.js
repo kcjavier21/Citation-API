@@ -10,7 +10,7 @@ const citeDictOrEncyclo = ({ authors, date, term, editors, edition, page, source
   let finalAuthor = getFormattedAuthors(authors);
   let finalDate = `${getFormattedDate(date)} `;
   let finalTerm = `${term}.`;
-  let finalEditors = getFormattedEditors(editors);
+  let finalEditors = (editors[0].firstName != '' && editors[0].lastName != '') ? getFormattedEditors(editors) : "";
   let finalEdPage = getFormattedEditionAndPage(edition, page);
   
   if (finalEdPage === "") finalSourceTitle = `<i>${sourceTitle}.</i>`;

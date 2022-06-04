@@ -22,7 +22,7 @@ const citeBook = ({ authors, year, book }) => {
 
 const citeBookChapter = ({ authors, year, chapter, editors, book, pages }) => {
   const formattedAuthors = getFormattedAuthors(authors);
-  const formattedEditors = editors ? `In ${getFormattedEditors(editors)}` : "";
+  const formattedEditors = (editors[0].firstName != '' && editors[0].lastName != '') ? `In ${getFormattedEditors(editors)}` : "";
   const formattedVolumePage = getFormattedVolumePage(book.volume, pages);
   const formattedLink = book.link ? ` Retrieved from${getFormattedLink(book)}`: "";
   const formattedYear = year ? year : "n.d.";
@@ -45,9 +45,9 @@ const citeBookChapter = ({ authors, year, chapter, editors, book, pages }) => {
 const citeRepublishedBook = ({ authors, year, title, volume, pages, publisher, origPubYear }) => {
   const formattedAuthor = getFormattedAuthors(authors);
   const formattedVolume = volume ? `Vol. ${volume}, ` : "";
-  const formattedYear = year ? year : "n.d.";
+  const formattedYear = year != null ? year : "n.d.";
   const formattedOrigPubYear = origPubYear ? origPubYear : "n.d.";
-  const pageAndVolume = getFormattedVolumePage(volume, pages);
+  const pageAndVolume = volume != null || pages.start != null ? getFormattedVolumePage(volume, pages) : "";
 
   const referenceCitation = `${formattedAuthor} (${formattedYear}). <i>${title}</i> ${pageAndVolume}${publisher}. (Original work published ${formattedOrigPubYear})`;
   return referenceCitation;

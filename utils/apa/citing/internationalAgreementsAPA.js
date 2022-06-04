@@ -2,12 +2,12 @@ const { getFormattedDetailsAgreement } = require("../helper/format");
 
 const citeInternationalAgreement = ({title, year, volume}) => {
   const formattedYear = year ? year : "n.d.";
-  const formattedVolume = getFormattedDetailsAgreement(volume);
   let internationalAgreementCitation;
 
-  const hasDetails = volume.number && volume.name && volume.pageNumber;
+  const hasDetails = volume.number != null && volume.name != null && volume.pageNumber != null;
 
   if(hasDetails) {
+    const formattedVolume = getFormattedDetailsAgreement(volume);
     internationalAgreementCitation = `${title}, ${formattedYear}, ${formattedVolume}.`;
   } else {
     internationalAgreementCitation = `${title}, ${formattedYear}.`;

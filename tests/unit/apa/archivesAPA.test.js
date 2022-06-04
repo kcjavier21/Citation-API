@@ -16,9 +16,9 @@ describe("Archive Sources  (APA)", () => {
       title: "Correspondence from Henry Davies Hicks to the Annapolis County electorate",
       description: "",
       collection: {
-                    Name: "Henry Davies Hicks fonds",
-                    Details: "MS-2-511, Box 15, Folder 9",
-                },
+        Name: "Henry Davies Hicks fonds",
+        Details: "MS-2-511, Box 15, Folder 9",
+      },
       repository: {
         Name: "Dalhousie University Archives",
         City: "Halifax, Nova Scotia, Canada"
