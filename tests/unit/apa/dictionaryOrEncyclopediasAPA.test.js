@@ -42,7 +42,13 @@ describe("Dictionary or Encyclopedia  (APA)", () => {
       authors: [],
       date: "",
       term: "Heuristic",
-      editors: [],
+      editors: [
+        {
+          lastName: '',
+          firstName: '',
+          middleInitial: '',
+        },
+      ],
       edition: "",
       page: "",
       sourceTitle: "Merriam-Webster’s online dictionary",
@@ -61,7 +67,13 @@ describe("Dictionary or Encyclopedia  (APA)", () => {
       authors: [ { lastName: "Watson", firstName: "John", middleInitial: "H"}],
       date: null,
       term: "Mood induction",
-      editors: [],
+      editors: [
+        {
+          lastName: '',
+          firstName: '',
+          middleInitial: '',
+        },
+      ],
       edition: null,
       page: "667",
       sourceTitle: "APA dictionary of psychology",
@@ -80,7 +92,13 @@ describe("Dictionary or Encyclopedia  (APA)", () => {
       authors: [],
       date: "2015",
       term: "Mood induction",
-      editors: [],
+      editors: [
+        {
+          lastName: '',
+          firstName: '',
+          middleInitial: '',
+        },
+      ],
       edition: "2",
       page: null,
       sourceTitle: "APA dictionary of psychology",

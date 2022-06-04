@@ -36,9 +36,8 @@ const getFormattedEditionVolume = ({ edition, volume }) => {
 // for Book Chapter
 const getFormattedVolumePage = (volume, pages) => {
   let formattedVolumePage;
-
-  const hasVolumeAndPage = volume && pages;
-  const hasPageOnly = !volume && pages;
+  const hasVolumeAndPage = (volume != null && volume != '') && pages.start != null;
+  const hasPageOnly = (volume === null || volume != undefined) && pages.start != null;
 
   if(hasVolumeAndPage) {
     formattedVolumePage = `(Vol. ${volume}, pp. ${getFormattedPages(pages)}). `;
@@ -50,9 +49,9 @@ const getFormattedVolumePage = (volume, pages) => {
 }
 
 const getFormattedPages = ({ start, end }) => {
-  const hasStartPageAndEndPage = start && end;
-  const hasStartPageOnly = start && !end;
-  const hasNoPages = !start && !end;
+  const hasStartPageAndEndPage = start != null && (end != '' && end != null);
+  const hasStartPageOnly = start != null && (end == '' || end == null);
+  const hasNoPages = start == '' && end == '';
   let formattedPages;
  
   if(hasStartPageAndEndPage) {
@@ -67,13 +66,9 @@ const getFormattedPages = ({ start, end }) => {
 }
 
 const getFormattedDetailsAgreement = ({number, name, pageNumber}) => {
-  const hasDetails = number && name && pageNumber;
 
-  if(hasDetails) {
-    return `${number} ${name} ${pageNumber}`.trim();
-  } else {
-    return "";
-  }
+  return `${number} ${name} ${pageNumber}`.trim();
+
 };
 
 module.exports = { getFormattedVolume, getFormattedEditionVolume, getFormattedVolumePage , getFormattedDetailsAgreement, getFormattedPages }

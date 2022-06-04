@@ -1,7 +1,7 @@
 const getFormattedLink = ({ link }) => {
   let formattedLink = "";
 
-  if (!link) {
+  if (link == null | link == '') {
     formattedlink = "";
   } else {
     formattedLink = ` ${link}`;
