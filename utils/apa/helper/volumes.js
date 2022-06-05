@@ -51,9 +51,9 @@ const getFormattedVolumePage = (volume, pages) => {
 const getFormattedPages = ({ start, end }) => {
   const hasStartPageAndEndPage = start != null && (end != '' && end != null);
   const hasStartPageOnly = start != null && (end == '' || end == null);
-  const hasNoPages = start == '' && end == '';
+  const hasNoPages = !hasStartPageOnly && (start == '' && end == '');
   let formattedPages;
- 
+
   if(hasStartPageAndEndPage) {
     formattedPages = `${start}-${end}`;
   } else if(hasStartPageOnly) {

@@ -14,4 +14,6 @@ router.post("/wo-author", (req, res) => {
   const result = citeWebWithout(data);
 
   res.send(result);
-});
+})
+
+module.exports = router;

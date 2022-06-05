@@ -1,10 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const { citeReports } = require("../../utils/apa/citing/reportsAPA");
+const { citeReport } = require("../../utils/apa/citing/reportsAPA");
 
 router.post("/", (req, res) => {
   const data = req.body;
-  const result = citeReports(data);
+  const result = citeReport(data);
 
   res.send(result);
 });
