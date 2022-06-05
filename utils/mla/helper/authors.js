@@ -18,11 +18,18 @@ const _formatWithAuthors = (authors) => {
     const hasMoreThanTwoAuthors = authors.length > 2;
 
     if (hasOneAuthor) {
-        return `${authors[0].lastName}, ${authors[0].firstName}. `;
+        const formattedMiddleInitial = (authors[0].middleInitial != '' && authors[0].middleInitial != null) ? ` ${authors[0].middleInitial}` : "";
+
+        return `${authors[0].lastName}, ${authors[0].firstName}${formattedMiddleInitial}. `;
     } else if (hasTwoAuthors) {
-        return `${authors[0].lastName}, ${authors[0].firstName}, and ${authors[1].firstName} ${authors[1].lastName}. `;
+        const formattedMiddleInitial = (authors[0].middleInitial != '' && authors[0].middleInitial != null) ? ` ${authors[0].middleInitial}.` : "";
+        const formattedMiddleInitialSecond = (authors[1].middleInitial != '' && authors[1].middleInitial != null) ? ` ${authors[1].middleInitial}.`  : "";
+
+        return `${authors[0].lastName}, ${authors[0].firstName}${formattedMiddleInitial}, and ${authors[1].firstName}${formattedMiddleInitialSecond} ${authors[1].lastName}. `;
     } else if (hasMoreThanTwoAuthors) {
-        return `${authors[0].lastName}, ${authors[0].firstName}, et al. `;
+        const formattedMiddleInitial = (authors[0].middleInitial != '' && authors[0].middleInitial != null) ? ` ${authors[0].middleInitial}` : "";
+
+        return `${authors[0].lastName}, ${authors[0].firstName}${formattedMiddleInitial}, et al. `;
     }
 }
 

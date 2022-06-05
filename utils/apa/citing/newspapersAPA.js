@@ -20,16 +20,16 @@ const citeNewspaper = ({ authors, date, article, pages, newspaper }) => {
 const citeOnlineNewspaper = ({ authors, date, article, newspaper, pages, link }) => {
   const formattedAuthors = getFormattedAuthors(authors);
   const formattedDate = getFormattedDate(date);
-  const formattedPages = pages ? `, ${getFormattedPages(pages)}` : "";
-  const formattedLink = link ? `${link}.` : "";
+  const formattedPages = (pages.start != null) ? `, ${getFormattedPages(pages)}` : "";
+  const formattedLink = link ? `. ${link}.` : "";
   let onlineNewspaperCitation;
 
   const hasAuthor = formattedAuthors != "";
 
   if(hasAuthor) {
-    onlineNewspaperCitation = `${formattedAuthors}${formattedDate} ${article}. <i>${newspaper}</i>${formattedPages}. ${formattedLink}`;
+    onlineNewspaperCitation = `${formattedAuthors}${formattedDate} ${article}. <i>${newspaper}</i>${formattedPages}${formattedLink}`;
   } else {
-    onlineNewspaperCitation = `${article}${formattedDate} <i>${newspaper}</i>${formattedPages}. ${formattedLink}`;
+    onlineNewspaperCitation = `${article}${formattedDate} <i>${newspaper}</i>${formattedPages}${formattedLink}`;
   }
   return onlineNewspaperCitation;
 };

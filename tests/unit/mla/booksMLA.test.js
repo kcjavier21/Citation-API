@@ -3,10 +3,8 @@ const { citeBookWebsite, citeBookReader, citeBookPrinted } = require("../../../u
 describe("Books (MLA)", () => {
   it("should properly cite a book from a website", () => {
     const bookWebsite = citeBookWebsite({
-      authors: [{ firstName: "Jane", lastName: "Austen" }, { firstName: "Seth", lastName: "Grahame-Smith"}],
-      source: null,
+      authors: [{ firstName: "Jane", lastName: "Austen", middleInitial: "B" }, { firstName: "Seth", lastName: "Grahame-Smith", middleInitial: ""}],
       container: "Pride and Prejudice and Zombies",
-      contributor: { type: null, firstName: null, lastName: null },
       version: null,
       volume: null,
       publisher: "Quirk",
@@ -16,16 +14,14 @@ describe("Books (MLA)", () => {
       link: "books.google.com/books?id=x5xPaPeZzmUC&lpg=PP1&dq=zombies&pg=PP1#v=onepage&q=zombies&f=false",
     });
     expect(bookWebsite).toEqual(
-      "Austen, Jane, and Seth Grahame-Smith. <i>Pride and Prejudice and Zombies</i>. Quirk, 2015. Google Books, books.google.com/books?id=x5xPaPeZzmUC&lpg=PP1&dq=zombies&pg=PP1#v=onepage&q=zombies&f=false."
+      "Austen, Jane B., and Seth Grahame-Smith. <i>Pride and Prejudice and Zombies</i>. Quirk, 2015. Google Books, books.google.com/books?id=x5xPaPeZzmUC&lpg=PP1&dq=zombies&pg=PP1#v=onepage&q=zombies&f=false."
     );
   });
 
   it("should properly cite a book from an e-reader", () => {
     const bookReader = citeBookReader({
-      authors: [{ firstName: "Anthony", lastName: "Doer" }],
-      source: null,
+      authors: [{ firstName: "Anthony", lastName: "Doer", middleInitial: "" }],
       container: "All the Light We Cannot See",
-      contributor: { type: null, firstName: null, lastName: null },
       reader: "Kindle Edition",
       version: null,
       volume: null,
@@ -40,10 +36,8 @@ describe("Books (MLA)", () => {
 
   it("should properly cite a printed book", () => {
     const bookPrinted = citeBookPrinted({
-      authors: [{ firstName: "Gregg", lastName: "Olsen" }, { firstName: "Rebecca", lastName: "Morris"}],
-      source: null,
+      authors: [{ firstName: "Gregg", lastName: "Olsen", middleInitial: "" }, { firstName: "Rebecca", lastName: "Morris", middleInitial: ""}],
       container: "If I Can’t Have You: Susan Powell, Her Mysterious Disappearance, and the Murder of Her Children",
-      contributor: { type: null, firstName: null, lastName: null },
       version: null,
       volume: null,
       publisher: "St. Martin’s True Crime",
