@@ -15,3 +15,5 @@ router.post("/p-encyclopedia", (req, res) => {
 
   res.send(result);
 });
+
+module.exports = router;

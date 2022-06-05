@@ -23,7 +23,6 @@ describe("Enyclopedia (MLA)", () => {
       authors:  [{ firstName: "Peter", lastName: "Iverson" }],
       title: "Navajo", 
       publication: "Scholastic Library", 
-      contributor: { type: null, firstName: null, lastName: null }, 
       version: null, 
       database: "Encyclopedia Americana", 
       year: "2004",
