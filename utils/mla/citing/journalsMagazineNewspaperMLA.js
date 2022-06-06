@@ -9,7 +9,7 @@ const citeJournMagNewsArticle = ( { authors, title, container, volume, issue, da
     const formattedVolume = getFormattedVolume(false, volume);
     const formattedIssue = issue ? `no. ${issue}, `: "";
     const formattedPage = getFormattedPages(database, urlOrDoi, page);
-    const formattedDate = getFormattedDate(database, urlOrDoi, formattedPage, date); 
+    const formattedDate = date.year ? getFormattedDate(database, urlOrDoi, formattedPage, date) : ''; 
     const formattedDatabase = database ? `<i>${database}</i>, `: "";
 
     return formattedAuthors + formattedTitle + formattedContainer + formattedVolume 

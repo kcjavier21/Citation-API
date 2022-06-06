@@ -1,4 +1,4 @@
-const citeVideo = ({ studio, year, title, place, company }) => {
+const citeVideoGame = ({ studio, year, title, place, company }) => {
     const formattedYear = year ? year : `n.d.`
     const referenceCitation = `${studio} <i>${title}</i> [Video game]. ${formattedYear}  ${place}, ${company}`;
 
@@ -15,4 +15,4 @@ const citeVideo = ({ studio, year, title, place, company }) => {
 // };
 
 //console.log(citeVideo(data));
-module.exports = { citeVideo }; 
+module.exports = { citeVideoGame }; 

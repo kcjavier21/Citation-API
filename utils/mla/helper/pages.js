@@ -3,7 +3,7 @@ const getFormattedPages = (database, urlOrDoi, { first, last }) => {
     return database || !urlOrDoi ? `pp. ${first}-${last}. `: `pp. ${first}-${last}, `;
   }
   else if (first) {
-    return database || !urlOrDoi ? `p. ${first}. `: `p. ${first}, `;
+    return database || !urlOrDoi ? `pp. ${first}. `: `pp. ${first}, `;
   }
   else return "";
 }

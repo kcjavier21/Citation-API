@@ -1,10 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const { citeVideo} = require("../../utils/apa/citing/videoAPA.js");
+const { citeVideoGame } = require("../../utils/apa/citing/videoGameAPA.js");
 
 router.post("/", (req, res) => {
   const data = req.body;
-  const result = citeVideo(data);
+  const result = citeVideoGame(data);
 
   res.send(result);
 });
