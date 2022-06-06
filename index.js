@@ -26,7 +26,7 @@ const television = require("./routes/apa/television");
 const thesis = require("./routes/apa/thesis");
 const video = require("./routes/apa/video");
 const websites = require("./routes/apa/websites");
-const youtube = require("./routes/apa/youTube");
+const youTube = require("./routes/apa/youTube");
 
 const single = require("./routes/apa/single");
 
@@ -71,7 +71,7 @@ app.use("/api/apa/television", television);
 app.use("/api/apa/thesis", thesis);
 app.use("/api/apa/video", video);
 app.use("/api/apa/websites", websites);
-app.use("/api/apa/you-tube", youtube);
+app.use("/api/apa/you-tube", youTube);
 
 app.use("/api/apa/single", single);
 
