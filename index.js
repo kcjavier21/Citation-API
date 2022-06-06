@@ -85,5 +85,5 @@ app.use("/api/mla/website", website);
 
 
 // === PORT ===
-const port = process.env.port || 8000;
+const port = process.env.PORT || 8000;
 app.listen(port, () => console.log(`Listening to port ${port}...`));
