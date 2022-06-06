@@ -26,7 +26,7 @@ const television = require("./routes/apa/television");
 const thesis = require("./routes/apa/thesis");
 const video = require("./routes/apa/video");
 const websites = require("./routes/apa/websites");
-const youtube = require("./routes/apa/youtube");
+const youtube = require("./routes/apa/youTube");
 
 const single = require("./routes/apa/single");
 
@@ -42,6 +42,10 @@ const app = express();
 // === MIDDLEWARE ===
 app.use(bodyParser.json());
 app.use(cors());
+
+app.get("/", (req, res) => {
+  res.status(200).send('Citation API');
+});
 
 // === ROUTES PATH ====
 // == APA (format) ==
